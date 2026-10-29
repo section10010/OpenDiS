@@ -19,6 +19,7 @@ VM 代码 `/home/sakura/opendis/src`，CMake 构建 `/home/sakura/opendis/build`
 Windows `E:/MiniForge/python.exe` 可运行配置/谱系回归、统计及制图；真实动力学使用 VM 的 ExaDiS 构建。
 
 `evidence/provenance/environment.json` 保存原生模块位置、版本及 Git revision；`w1_native_pin.patch` 是原本就存在的 W1 固定节点补丁，本轮没有改动原生源码。
+`results/provenance/w1_native_pin.patch` 为忽略 CR/LF 差异后的最小语义补丁（14行增加、3行删除）；原始整文件换行差异仍保留在原始证据中。源码提交固定 LF，避免 A0 字节核对因跨平台换行转换误报。
 新环境应核对该补丁并重新构建，通过下方 A0；不要只复制另一个环境的 PASS。
 
 ## 新运行环境重新完成 A0
