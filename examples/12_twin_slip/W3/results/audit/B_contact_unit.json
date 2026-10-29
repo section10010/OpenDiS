@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "mode": "HI",
+      "wall": "lower",
+      "blocked_normal_ratio": 0.0,
+      "retained_tangent_ratio": 1.0,
+      "release_ratio": 1.0,
+      "status": "PASS"
+    },
+    {
+      "mode": "HI",
+      "wall": "upper",
+      "blocked_normal_ratio": 0.0,
+      "retained_tangent_ratio": 1.0,
+      "release_ratio": 1.0,
+      "status": "PASS"
+    },
+    {
+      "mode": "HI",
+      "test": "native_event_hit_and_all_operations",
+      "event_dt_s": 4.729510478370448e-11,
+      "status": "PASS"
+    },
+    {
+      "mode": "HII",
+      "wall": "lower",
+      "blocked_normal_ratio": 0.0,
+      "retained_tangent_ratio": 1.0,
+      "release_ratio": 1.0,
+      "status": "PASS"
+    },
+    {
+      "mode": "HII",
+      "wall": "upper",
+      "blocked_normal_ratio": 0.0,
+      "retained_tangent_ratio": 1.0,
+      "release_ratio": 1.0,
+      "status": "PASS"
+    },
+    {
+      "mode": "HII",
+      "test": "native_event_hit_and_all_operations",
+      "event_dt_s": 1.111660451167769e-10,
+      "status": "PASS"
+    }
+  ],
+  "scope": "native unilateral glide-compatible mobility, tangent and release"
+}

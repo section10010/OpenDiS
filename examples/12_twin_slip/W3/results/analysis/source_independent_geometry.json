@@ -1,0 +1,14 @@
+{
+  "large_free_loop_count": 3,
+  "free_loop_area_radii_nm": [
+    3001.1202195295687,
+    1837.6526206078024,
+    723.0464514939232
+  ],
+  "mobile_anchored_parent": true,
+  "inside_computational_box": true,
+  "confirmed_event_count": 3,
+  "fine20_first_emission_reproduced": true,
+  "first_detachment_time_mesh_relative_difference": 0.022158155764893217,
+  "four_geometric_sensitivities_completed": true
+}

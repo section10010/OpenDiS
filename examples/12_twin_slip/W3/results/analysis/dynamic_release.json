@@ -1,0 +1,16 @@
+[
+  {
+    "mode": "HI",
+    "same_actual_restart_network": true,
+    "lower_gap_nm": 71.74653753265511,
+    "upper_gap_nm": 72.18044879575564,
+    "status": "PASS"
+  },
+  {
+    "mode": "HII",
+    "same_actual_restart_network": true,
+    "lower_gap_nm": 75.32231160254105,
+    "upper_gap_nm": 75.14333796600704,
+    "status": "PASS"
+  }
+]

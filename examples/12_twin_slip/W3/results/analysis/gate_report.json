@@ -1,0 +1,12 @@
+{
+  "A0": "PASS",
+  "A1": "PASS",
+  "B0": "PASS",
+  "B1": "PASS",
+  "B1_scope": "I0, nonperiodic single channel, existing-loop / prepared-threader propagation; not material strengthening",
+  "VCoNi_material_qualification": "NOT_QUALIFIED",
+  "W4_four_thickness_campaign": "NOT_RUN",
+  "same_TB_two_crystal_sides": "NOT_RUN",
+  "source_critical_stress_scope": "Independent constant-stress, two-ns activation window; no asymptotic critical-stress claim",
+  "second_wall_changes_existing_propagation": true
+}

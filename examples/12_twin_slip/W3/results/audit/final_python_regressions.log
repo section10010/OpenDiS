@@ -1,0 +1,11 @@
+test_crystallography (test_configuration.ConfigurationTests.test_crystallography) ... ok
+test_geometry_parameters_change_actual_arrays (test_configuration.ConfigurationTests.test_geometry_parameters_change_actual_arrays) ... ok
+test_global_quotas_and_500nm (test_configuration.ConfigurationTests.test_global_quotas_and_500nm) ... ok
+test_reject_unused_or_unsupported_settings (test_configuration.ConfigurationTests.test_reject_unused_or_unsupported_settings) ... ok
+test_stress_controls_burgers_and_rss (test_configuration.ConfigurationTests.test_stress_controls_burgers_and_rss) ... ok
+test_junction_birth_and_absorbed_debris_do_not_double_count (test_lineage.LineageRegression.test_junction_birth_and_absorbed_debris_do_not_double_count) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.067s
+
+OK
