@@ -1,5 +1,7 @@
 # 下一动作
 
+2026-10-30 执行中恢复入口：优先核对 `/home/sakura/opendis/w4_g1_20261030_003/campaign.log` 和 `origin_sensitivity.log`。003为仅平移原生力计算原点的修复版；002旧版力互反FAIL与CENSORED必须保留，不能混入最终资格。新矩阵后执行 force_audit.py、analyze_shared.py、report_shared.py。G0新A0及四条原门禁复核已在002/g0_regression完成PASS；额外10^-10完整字段检查FAIL独立保留。整体G1尚未裁决。
+
 1. 从已通过的G1初始力场入口继续：`W4/G1/code/shared_force_probe.py`。不得绕过steps>0的显式保护。
 2. 实现单共享CTB的每段host/来源和可释放单侧接触；M/T同一宏观载荷、同一原生弹性网络。
 3. 先验证新节点材料侧继承、tag重用反例、非法跨材料碰撞/拓扑的拒绝及账本一致性，再做双侧真实短演化。

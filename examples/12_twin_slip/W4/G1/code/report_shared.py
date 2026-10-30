@@ -1,0 +1,131 @@
+"""Chinese scientific review and figures from actual G1 endpoints/trajectories."""
+import argparse,json,csv,html,re
+from pathlib import Path
+import numpy as np
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.art3d import Line3DCollection,Poly3DCollection
+
+
+def main():
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--analysis',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+    if a.out.exists():raise RuntimeError('Refuse overwrite')
+    a.out.mkdir(parents=True);root=a.root
+    def load(p):return json.loads(Path(p).read_text())
+    gate=load(a.analysis/'gate_review.json');metrics=load(a.analysis/'metrics.json');contrasts=load(a.analysis/'paired_contrasts.json')
+    causal=load(a.analysis/'causal_resolution.json');refine=load(a.analysis/'refinement.json');release=load(a.analysis/'reverse_release.json');ctb=load(a.analysis/'ctb_ablation.json')
+    aliases=load(root/'case_aliases.json').get('aliases',{}) if (root/'case_aliases.json').exists() else {}
+    def folder(name):return root/'cases'/aliases.get(name,name)
+    colors={'M':'#2879B9','T':'#D87832'}
+    plt.rcParams.update({'font.family':'DejaVu Sans','font.size':10,'axes.spines.top':False,'axes.spines.right':False,'savefig.dpi':250,'pdf.fonttype':42,'svg.fonttype':'none'})
+    figure_manifest=[]
+    def save(fig,name,sources):
+        for suffix in ('png','pdf','svg'):fig.savefig(a.out/(name+'.'+suffix),bbox_inches='tight')
+        plt.close(fig);figure_manifest.append(dict(figure=name,source_cases=sources,selection='Predefined endpoints or all accepted history points; no interpolated DDD states',analysis=str(a.analysis)))
+    fig=plt.figure(figsize=(12,7));allx=[];data={}
+    for pop in ('M','T','MT'):
+        for state in ('initial','final'):
+            with np.load(folder('mesh2p5_timehalf_'+pop)/(state+'.npz')) as z:data[pop,state]={k:z[k] for k in ('positions_nm','ids','segment_host')}
+            allx.append(data[pop,state]['positions_nm']/1000)
+    points=np.concatenate(allx);lo=points.min(axis=0)-.025;hi=points.max(axis=0)+.025
+    for j,pop in enumerate(('M','T','MT')):
+        for row,state in enumerate(('initial','final')):
+            ax=fig.add_subplot(2,3,row*3+j+1,projection='3d');d=data[pop,state];x=d['positions_nm']/1000
+            for host in ('M','T'):
+                edge=d['segment_host']==host
+                ax.add_collection3d(Line3DCollection(x[d['ids'][edge]],colors=colors[host],linewidths=1.3))
+            plane=[(lo[0],lo[1],2),(hi[0],lo[1],2),(hi[0],hi[1],2),(lo[0],hi[1],2)]
+            ax.add_collection3d(Poly3DCollection([plane],facecolor='#A9B7BC',alpha=.16,edgecolor='#71818A',linewidth=.4))
+            ax.set(xlim=(lo[0],hi[0]),ylim=(lo[1],hi[1]),zlim=(lo[2],hi[2]),xlabel='x (um)',ylabel='y (um)',zlabel='z (um)')
+            ax.set_title({'M':'M-only','T':'T-only','MT':'M + T'}[pop]+(' | initial' if state=='initial' else ' | 0.025 ns'))
+            ax.view_init(elev=23,azim=-58);ax.set_box_aspect(hi-lo);ax.tick_params(labelsize=7)
+    fig.suptitle('One shared CTB: actual native networks, common axes',fontsize=14)
+    save(fig,'G1_native_networks',['mesh2p5_timehalf_'+p for p in ('M','T','MT')])
+    fig,axs=plt.subplots(1,3,figsize=(13,3.8))
+    for pop,ls in [('M','--'),('T',':'),('MT','-')]:
+        rows=list(csv.DictReader((folder('mesh2p5_timehalf_'+pop)/'history.csv').open()))
+        t=np.array([float(r['time_ns']) for r in rows])
+        for host in pop:
+            axs[0].plot(t,[float(r[host+'_swept_area_nm2'])/1e6 for r in rows],ls,color=colors[host],label=host+' in '+pop,linewidth=1.4)
+            axs[1].plot(t,[float(r[host+'_tail_nm']) for r in rows],ls,color=colors[host],linewidth=1.4)
+    axs[0].set(xlabel='Native time (ns)',ylabel='Integration swept area (um$^2$)');axs[0].legend(fontsize=8)
+    axs[1].set(xlabel='Native time (ns)',ylabel='CTB contact tail (nm)')
+    levels=list(contrasts)
+    for host in ('M','T'):
+        axs[2].plot(range(len(levels)),[contrasts[l][host]['area_difference_nm2'] for l in levels],'o-',color=colors[host],label=host)
+    axs[2].axhline(0,color='.5',linewidth=.7);axs[2].set_xticks(range(len(levels)),['10','10 t/2','10 t/4','5','2.5','2.5 t/2'],rotation=35)
+    axs[2].set(ylabel='MT minus single swept area (nm$^2$)',xlabel='Frozen numerical refinement');axs[2].legend()
+    fig.tight_layout();save(fig,'G1_propagation_and_paired_difference',['mesh2p5_timehalf_M','mesh2p5_timehalf_T','mesh2p5_timehalf_MT','all six refinement levels'])
+    fig,axs=plt.subplots(1,2,figsize=(9,3.6))
+    for pop,ls in [('M','--'),('T',':'),('MT','-')]:
+        rows=list(csv.DictReader((folder('reverse_'+pop)/'history.csv').open()));t=[float(r['time_ns']) for r in rows]
+        for host in pop:
+            axs[0].plot(t,[float(r[host+'_contact_nodes']) for r in rows],ls,color=colors[host],label=host+' in '+pop)
+            axs[1].plot(t,[float(r[host+'_gap_nm']) for r in rows],ls,color=colors[host])
+    axs[0].set(xlabel='Time after stress reversal (ns)',ylabel='Contact nodes');axs[0].legend(fontsize=8)
+    axs[1].set(xlabel='Time after stress reversal (ns)',ylabel='Minimum material-side gap (nm)');fig.tight_layout()
+    save(fig,'G1_reverse_release',['reverse_M','reverse_T','reverse_MT'])
+    maximum=max(max(v['primary_relative'].values()) for v in refine);event=max(max(v['event_relative'].values()) for v in refine)
+    lines=['# W4-G1 中文综合实施与科学审查报告','',f'日期：2026-10-30；G1 科学裁决：**{gate["status"]}（下述明确限定范围）**。',
+        '', '## 1. 核心结论',
+        '', '已完成 M-only、T-only、M+T 的真实短时演化、反向释放、无CTB和原生操作消融。M/T共用一个真实ExaDiS弹性网络、同一宏观应力张量及同一个CTB0。不是两个独立通道动画。',
+        '', '在本例中，跨侧位错相互作用略微促进传播、使首次接触略提前；界面本身仍阻挡运动。未为了符合“共同活动必须更强阻碍”的预期改参数或绘图。这个结论不是四厚度强化、屈服或HDI结论。',
+        '', '## 2. 模型、实现与适用范围',
+        '', '材料为未标定有效FCC：b=0.255 nm、mu=54.6 GPa、nu=0.324，采用共同sigma_zz=1.1 GPa、相同GLIDE迁移率与各自正确旋转的滑移面。两源是普通闭合传播环，不称为Frank–Read源。取向保持共同[111]的60度Sigma3关系。',
+        '', '接触为固定、理想不可透射I0。一个共享几何面由M/T分别施加相反单侧法向约束；反力通过实际原生迁移率投影求得，保留合法界面切向速度，反向速度自动释放。不钉死节点、不把穿透后坐标裁回界面。CTB承受负的总接触反力；它没有独立结构演化或透射反应自由度。力为非周期无限介质N2直接力，计算盒不等于带自由表面修正的有限体；各向异性弹性、真实CTB结构力和透射反应均未加入。',
+        '', '材料身份从真实线段的Burgers、滑移法向及仿射源平面唯一继承；tag只作为原生地址，不作为材料身份。host_layer、origin_region、current_region、source/lineage及CTB/image字段均保存。当前支持每侧唯一可辨识的仿射单滑移源；无法辨识的反应、跨材料连接和孤立节点显式拒绝。不能把这种限定冒充完整多滑移系反应模型。',
+        '', '## 3. 正例、反例与拓扑一致性',
+        '', '身份/能力拒绝几何回归7项通过，原生准入7项通过：接触/切向运动/释放/反力重构、真实分裂和粗化、地址复用、非法穿透及跨材料碰撞负控均有原始记录。原生重网格确实增加和减少节点，身份在实际输出上恢复。跨材料碰撞实际把76节点变成77节点，非法连接被拒绝。失败构型、合法恢复图和失败命令均保留。',
+        '', '每个原生积分、碰撞、TopologySerial及Remesh阶段结束后检查Burgers、来源和半空间合法性；Euler事件限制确保接受积分段不穿透。非法原生提议会结束该例，不会静默跳过操作后继续标PASS。恢复证据是网络图与时间状态复原，不是已获资格的累计塑性账本断点续算。原生tag在单个C++操作内部的完整生命周期未由绑定暴露，未冒称谱系事件精确恢复。',
+        '', '## 4. 数值与因果验证',
+        '', f'最后空间及时间细化比较中，主量最大相对差 {100*maximum:.5f}%，首次接触时刻最大相对差 {100*event:.5f}%。原2%/5%门槛保留；细小成对效应另用绝对误差，而非以2%总量容差代替。',
+        '', '| 材料侧 | 最细MT−单侧扫掠面积 (nm²) | 相对单侧 (%) | 观察到的空间+时间差 (nm²) | 因果判定 |', '|---|---:|---:|---:|---|']
+    for v in causal:
+        host=v['host'];delta=contrasts['mesh2p5_timehalf'][host]
+        lines.append(f'| {host} | {v["delta_area_nm2"]:.6f} | {100*delta["relative_to_single"]:.6f} | {v["empirical_error_nm2"]:.6f} | {v["status"]} |')
+    lines+=['', '成对效应在最后层级保持符号且超过两倍观察到的细化差。这个差值准则是冻结的确定性分辨标准，不是严谨误差上界或随机种子置信区间。',
+        '', '全部已保存MT构型执行原生共同应力PK差分、跨侧力互反及“仅移除跨侧弹性力”的瞬时反事实检查；网络、位置、迁移率和接触不变。原生力与速度随之改变，支持差异来自跨侧弹性耦合。瞬时检查不冒充独立无耦合长时轨迹。',
+        '', '旧002版在末态出现约1.68e-6的跨侧力互反残差，超过冻结1e-8。原生直接段对复算、交换段对次序不能消除；仅把计算原点平移到网络附近后，残差降至约1e-11。新003版仅将输入原生力内核的图坐标和cell origin作统一平移，输出力回给原物理图。物理坐标、初始网络、CTB、载荷、材料与迁移率不变，没有投影或配平力。原生字段等价/原图不变等4项准入通过；完整26例在新版本重新计算，不混用旧轨迹。独立高精度解析参考仍NOT_RUN，因此不把这项修复冒称内核全域精度已证明。',
+        '', '## 5. 界面阻碍与反向释放',
+        '', '| 消融人口/材料侧 | 有CTB面积 (nm²) | 无CTB面积 (nm²) | 面积降低 (%) | 最终界面尾段 (nm) |', '|---|---:|---:|---:|---:|']
+    for d in ctb:lines.append(f'| {d["population"]}/{d["host"]} | {d["wall_area_nm2"]:.4f} | {d["no_ctb_area_nm2"]:.4f} | {100*d["area_reduction"]:.4f} | {d["contact_tail_nm"]:.4f} |')
+    lines+=['', '无CTB为移除约束而保留初始滑移流形的参考，不冒充真实CTB透射。反向加载从同一真实前向末态重启，原生节点、线段、Burgers和滑移面逐数组相同，没有重新生成或插入位错。',
+        '', '| 人口 | 各侧首次全部脱离时间 (ns) | 裁决 |','|---|---|---|']
+    for d in release:lines.append(f'| {d["population"]} | {d["first_full_release_ns"]} | {d["status"]} |')
+    lines+=['', '## 6. G0回归、失败证据与资源',
+        '', 'G0生产源码保持不变。重新运行A0（含固定节点与原生FR回归）、接触/三速度准入和四条HI/HII无壁/双壁原生轨迹；最终数组与历史输出比较。G0原冻结观测量/事件/守恒门禁通过，权威80例R5不覆盖。',
+        '', '单独新增的“完整力/速度相对差小于1e-10”辅助复现检查FAIL，失败原日志与strict_full_field_replay.json保留，未放宽该项阈值或改成PASS。首个无壁HI末态位置最大差1.96e-8 nm、速度最大差约2.73e-4 m/s，图拓扑相同；四条扫掠面积最大相对差约5.59e-14。没有独立定位原生浮点累计差异的完整来源，严格逐字段复现不获资格。它与按既有准则通过的G0科学回归分别裁决。',
+        '', '历史试算、非法阶段FAIL和资源CENSORED均保留。若有预算扩展，必须使用新case ID、从原始初态完整重跑，记录逻辑案例映射；不能把截断轨迹拼接成连续PASS。详见campaign_manifest、case_aliases（如有）、日志收据与原始result.json。',
+        '', '4000 m/s限速会影响G0真实时序的既有发现没有被G1撤销。G1这里采用数学线性GLIDE无上限基准，不能宣称高速度材料运动律已标定。',
+        '', '## 7. 独立裁决与后续方向',
+        '', f'- G1限定双侧单滑移/I0机制：{gate["status"]}。共享接触、身份继承、合法释放和阶段拓扑审查具有真实演化证据。',
+        '- VCoNi材料标定、模式相关CTB反应、任意多源/多滑移反应、周期层片、局域Nye/GND、真实强化及HDI：NOT_QUALIFIED或NOT_RUN。',
+        '- G1只含一个共享CTB，不能替代W3/G0的第二面界面增量验证，更不能回答四厚度趋势。',
+        '- 后续G2需要周期像与跨盒谱系、共享界面canonical ID、多界面事件限制和完整拒步账本；在这些门禁通过前不启动W6集体矩阵。',
+        '', '## 8. 可复现证据入口',
+        '', f'原生运行根：`{root}`；审查目录：`{a.analysis}`。每例spec/config、命令、退出码、源码快照、初末构型、接受步三速度和dt、接触/身份事件、逐阶段面积张量与全局塑性均保留。',
+        '', '诊断图为真实数据：初末网络、全接受步传播/接触曲线、预定数值细化成对差及反向释放。不是论文F1–F10最终图，也没有用示意或插值代替DDD。']
+    (a.out/'W4_G1_REPORT_ZH.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    def inline(s):
+        escaped=html.escape(s);escaped=re.sub(r'\*\*(.+?)\*\*',r'<strong>\1</strong>',escaped)
+        return re.sub(r'`(.+?)`',r'<code>\1</code>',escaped)
+    body='';table=False
+    for line in lines:
+        if line.startswith('|'):
+            if set(line.replace('|','').replace('-','').replace(':','').strip())==set():continue
+            cells=[s.strip() for s in line.strip('|').split('|')]
+            if not table:body+='<table><thead><tr>'+''.join('<th>'+inline(s)+'</th>' for s in cells)+'</tr></thead><tbody>';table=True
+            else:body+='<tr>'+''.join('<td>'+inline(s)+'</td>' for s in cells)+'</tr>'
+            continue
+        if table:body+='</tbody></table>';table=False
+        if line.startswith('# '):body+='<h1>'+inline(line[2:])+'</h1>'
+        elif line.startswith('## '):body+='<h2>'+inline(line[3:])+'</h2>'
+        elif line:body+='<p>'+inline(line)+'</p>'
+    if table:body+='</tbody></table>'
+    for f in figure_manifest:body+='<figure><img src="'+f['figure']+'.png"><figcaption>'+f['figure']+'</figcaption></figure>'
+    (a.out/'W4_G1_REPORT_ZH.html').write_text('<!doctype html><html lang="zh"><meta charset="utf-8"><title>W4-G1 中文科学审查</title><style>body{font:16px/1.7 "Microsoft YaHei",sans-serif;max-width:1100px;margin:40px auto;padding:20px;color:#243441}h1,h2{color:#135277}h2{border-bottom:1px solid #cad6de;margin-top:2em}p{white-space:pre-wrap}img{width:100%}figure{margin:32px 0}table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:8px 10px;border:1px solid #d5dfe5}th{background:#eaf1f5}code{overflow-wrap:anywhere;background:#eef2f4}strong{color:#14624f}</style><body>'+body+'</body></html>',encoding='utf-8')
+    (a.out/'figure_manifest.json').write_text(json.dumps(figure_manifest,indent=2,ensure_ascii=False));print('G1_REPORT_WRITTEN',a.out)
+
+
+if __name__=='__main__':main()

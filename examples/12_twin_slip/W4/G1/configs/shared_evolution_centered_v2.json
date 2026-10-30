@@ -1,0 +1,92 @@
+{
+  "schema": "W4.G1.SharedEvolution.v1",
+  "scope": "Numerically centered real native direct force; same physical network/material/load/CTB as original v1",
+  "contact_enabled": true,
+  "initial_geometry_updates": {
+    "maxseg_nm": 10.0
+  },
+  "common_native_updates": {
+    "kind": "propagation_loop",
+    "mode": "HI",
+    "stress_pa": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1100000000
+      ]
+    ],
+    "integrator": "EulerForward",
+    "vmax_m_s": null,
+    "Medge": 32051.5,
+    "Mscrew": 32051.5,
+    "walls": [],
+    "end_ns": 0.025,
+    "maxseg_nm": 10,
+    "minseg_nm": 2,
+    "maxdt_ps": 0.125,
+    "max_node_step_nm": 0.125,
+    "max_wall_s": 750,
+    "max_steps": 15000,
+    "threads": 2,
+    "frame_interval_ns": 0.0025
+  },
+  "interface": {
+    "id": "CTB0",
+    "z_nm": 2000.0
+  },
+  "regions": [
+    {
+      "region": "M",
+      "phase": "matrix",
+      "center_nm": [
+        1800,
+        2000,
+        1930
+      ],
+      "allowed_normal": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "region": "T",
+      "phase": "twin",
+      "center_nm": [
+        2200,
+        2000,
+        2070
+      ],
+      "allowed_normal": [
+        0,
+        0,
+        1
+      ]
+    }
+  ],
+  "criteria": {
+    "source_plane_tol_nm": 0.0001,
+    "penetration_nm": 1e-06,
+    "primary_refinement_relative": 0.02,
+    "event_relative": 0.05,
+    "causal_difference": "Absolute paired area difference must exceed twice its last-refinement change; signed contrast must agree across final levels. No CI from frames.",
+    "cross_force_balance_relative": 1e-08,
+    "plastic_absolute": 1e-12,
+    "campaign_max_wall_s": 3600
+  },
+  "force_evaluation_origin_nm": [
+    2000.0,
+    2000.0,
+    2000.0
+  ]
+}
