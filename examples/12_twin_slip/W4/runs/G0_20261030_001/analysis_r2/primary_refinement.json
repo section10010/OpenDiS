@@ -1,0 +1,254 @@
+[
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "none",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.01000079741694959,
+      "line_nm": 0.00504532490706932,
+      "tail_nm": 0.0
+    },
+    "event_relative_errors": {},
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "none",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 0.00037002091670429227,
+      "line_nm": 0.0001783085694217917,
+      "tail_nm": 0.0
+    },
+    "event_relative_errors": {},
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "lower",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.009800944618219065,
+      "line_nm": 0.005676503540138665,
+      "tail_nm": 0.011853988782804432
+    },
+    "event_relative_errors": {
+      "lower": 0.019905818018174846
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "lower",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 0.0002932562375688843,
+      "line_nm": 0.00012797164018889807,
+      "tail_nm": 0.0005837448290187984
+    },
+    "event_relative_errors": {
+      "lower": 0.0004538201416074911
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "upper",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.009801883302926976,
+      "line_nm": 0.005693840936922941,
+      "tail_nm": 0.03251625102159154
+    },
+    "event_relative_errors": {
+      "upper": 0.01992858221698478
+    },
+    "missing_contact_events": [],
+    "status": "UNRESOLVED"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "upper",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 0.00029325304511654835,
+      "line_nm": 0.00012796884292380156,
+      "tail_nm": 0.0005837653341924855
+    },
+    "event_relative_errors": {
+      "upper": 0.00045382013953937383
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "both",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.008904226940927976,
+      "line_nm": 0.007711170371930445,
+      "tail_nm": 0.021943280131336677
+    },
+    "event_relative_errors": {
+      "lower": 0.01990581801959696,
+      "upper": 0.019928571958995174
+    },
+    "missing_contact_events": [],
+    "status": "UNRESOLVED"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "both",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 2.00055874136919e-05,
+      "line_nm": 1.1808179815097597e-05,
+      "tail_nm": 0.000990598829712005
+    },
+    "event_relative_errors": {
+      "lower": 0.00045382014021249885,
+      "upper": 0.00045382014021249885
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "none",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.001293560202014395,
+      "line_nm": 0.00042121355955741297,
+      "tail_nm": 0.0
+    },
+    "event_relative_errors": {},
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "none",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 0.00011143550735810989,
+      "line_nm": 5.42548929669089e-05,
+      "tail_nm": 0.0
+    },
+    "event_relative_errors": {},
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "lower",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.002280232552436993,
+      "line_nm": 0.0011971068075460351,
+      "tail_nm": 0.012431706247573128
+    },
+    "event_relative_errors": {
+      "lower": 0.00718414120928365
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "lower",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 6.189686348863492e-05,
+      "line_nm": 9.399193306507024e-06,
+      "tail_nm": 0.0009605296817221342
+    },
+    "event_relative_errors": {
+      "lower": 0.0015760222527616897
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "upper",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.0022801470789319375,
+      "line_nm": 0.0011970677093513043,
+      "tail_nm": 0.012434259815212324
+    },
+    "event_relative_errors": {
+      "upper": 0.007187214226016197
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "upper",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 6.184264479755005e-05,
+      "line_nm": 9.383681776933667e-06,
+      "tail_nm": 0.0009627453823771929
+    },
+    "event_relative_errors": {
+      "upper": 0.0015687607252089255
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "both",
+    "comparison": "space_20_to_10",
+    "relative_errors": {
+      "area_nm2": 0.006665142784556761,
+      "line_nm": 0.00338503530800195,
+      "tail_nm": 0.008036696278051578
+    },
+    "event_relative_errors": {
+      "lower": 0.007184125569343887,
+      "upper": 0.007187213824879919
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "both",
+    "comparison": "time_half_at_10",
+    "relative_errors": {
+      "area_nm2": 0.0001464482402629745,
+      "line_nm": 9.244985794101414e-05,
+      "tail_nm": 0.0008673203237122777
+    },
+    "event_relative_errors": {
+      "lower": 0.0015760231006558985,
+      "upper": 0.0015687607252089255
+    },
+    "missing_contact_events": [],
+    "status": "PASS"
+  }
+]

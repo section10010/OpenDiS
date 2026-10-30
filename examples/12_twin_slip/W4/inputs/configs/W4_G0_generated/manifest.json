@@ -1,0 +1,272 @@
+{
+  "schema": "DDDPlan.ExecutionManifest.v1",
+  "status": "NOT_RUN",
+  "native_engine": "existing W3 run.py",
+  "warning": "Uncapped speed is a mathematical diagnostic only; check quasi-static elasticity validity before physical interpretation.",
+  "jobs": [
+    {
+      "case_id": "G0_loop_HI_none_cap4000",
+      "config": "G0_loop_HI_none_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_none_uncapped_diagnostic",
+      "config": "G0_loop_HI_none_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_none_tau250_uncapped",
+      "config": "G0_loop_HI_none_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_cap4000",
+      "config": "G0_loop_HI_lower_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_uncapped_diagnostic",
+      "config": "G0_loop_HI_lower_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_tau250_uncapped",
+      "config": "G0_loop_HI_lower_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_cap4000",
+      "config": "G0_loop_HI_upper_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_uncapped_diagnostic",
+      "config": "G0_loop_HI_upper_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_tau250_uncapped",
+      "config": "G0_loop_HI_upper_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_both_cap4000",
+      "config": "G0_loop_HI_both_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_both_uncapped_diagnostic",
+      "config": "G0_loop_HI_both_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_loop_HI_both_tau250_uncapped",
+      "config": "G0_loop_HI_both_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_none_cap4000",
+      "config": "G0_threader_HII_none_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_none_uncapped_diagnostic",
+      "config": "G0_threader_HII_none_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_none_tau250_uncapped",
+      "config": "G0_threader_HII_none_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_cap4000",
+      "config": "G0_threader_HII_lower_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_uncapped_diagnostic",
+      "config": "G0_threader_HII_lower_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_tau250_uncapped",
+      "config": "G0_threader_HII_lower_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_cap4000",
+      "config": "G0_threader_HII_upper_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_uncapped_diagnostic",
+      "config": "G0_threader_HII_upper_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_tau250_uncapped",
+      "config": "G0_threader_HII_upper_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_both_cap4000",
+      "config": "G0_threader_HII_both_cap4000.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_both_uncapped_diagnostic",
+      "config": "G0_threader_HII_both_uncapped_diagnostic.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    },
+    {
+      "case_id": "G0_threader_HII_both_tau250_uncapped",
+      "config": "G0_threader_HII_both_tau250_uncapped.json",
+      "status": "NOT_RUN",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both",
+      "purpose": "Numerical cap/load sensitivity, not high-speed physical validation",
+      "scientific_gate": "W4-G0",
+      "schema": "OpenDiS.W3.v1"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "gate": "W4-G0",
+  "status": "UNRESOLVED",
+  "case_counts": {
+    "PASS": 72,
+    "FAIL": 0,
+    "CENSORED": 0,
+    "NOT_RUN": 0
+  },
+  "screen_completed": 24,
+  "native_numerical_invariants": "PASS",
+  "primary_refinement": "UNRESOLVED",
+  "second_wall_mechanism": "PASS",
+  "actual_time_cap_insensitivity": "NOT_QUALIFIED",
+  "nonlinear_high_speed_material_law": "NOT_QUALIFIED",
+  "VCoNi": "NOT_QUALIFIED",
+  "absolute_elastic_potential_energy": "NOT_RUN; force binding has no energy API; reaction-work/dissipation and native plastic closure audited",
+  "local_topological_plastic_field": "NOT_RUN",
+  "G1_admission": "BLOCKED",
+  "scope": "Effective FCC I0 numerical/causal mechanism only; no cap-independent physical timing, thickness trend or material-strength qualification"
+}

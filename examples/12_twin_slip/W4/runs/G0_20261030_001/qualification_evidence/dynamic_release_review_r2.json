@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "kind": "loop",
+      "mode": "HI",
+      "status": "PASS",
+      "identical_actual_restart_network": true,
+      "final_wall_gaps_nm": null,
+      "terminal_state": "network_annihilated",
+      "released_nonempty_states": 918,
+      "first_released_time_ns": 2.9235244106792723e-05,
+      "final_native_plastic_closure": 3.716389106242978e-22,
+      "empty_gap_convention": "Undefined/null, never infinity or fabricated zero"
+    },
+    {
+      "kind": "threader",
+      "mode": "HII",
+      "status": "PASS",
+      "identical_actual_restart_network": true,
+      "final_wall_gaps_nm": null,
+      "terminal_state": "network_annihilated",
+      "released_nonempty_states": 845,
+      "first_released_time_ns": 2.8454892010311433e-05,
+      "final_native_plastic_closure": 5.125850778757641e-22,
+      "empty_gap_convention": "Undefined/null, never infinity or fabricated zero"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "case": "preflight_positive",
+      "status": "PASS",
+      "expected_native_status": "PASS",
+      "actual_native_status": "PASS"
+    },
+    {
+      "case": "preflight_resource",
+      "status": "PASS",
+      "expected_native_status": "CENSORED",
+      "actual_native_status": "CENSORED"
+    },
+    {
+      "case": "preflight_illegal_contact",
+      "status": "PASS",
+      "expected_native_status": "FAIL",
+      "actual_native_status": "FAIL"
+    }
+  ]
+}

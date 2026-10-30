@@ -1,0 +1,26 @@
+[
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "finest_label": "mesh5_timequarter",
+    "finest_nonadditivity_nm2": 4238.457925106748,
+    "observed_refinement_error_sum_nm2": 3584.5586051940336,
+    "nonadditivity_numerical_sign": "PASS",
+    "second_upper_nm2": -197780.48644600916,
+    "second_refinement_error_sum_nm2": 1182.734977244807,
+    "second_wall_detectable": true,
+    "caveat": "Observed refinement differences are an empirical error estimate, not a rigorous theorem or seed confidence interval"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "finest_label": "mesh10_timehalf",
+    "finest_nonadditivity_nm2": 3161.3402580370894,
+    "observed_refinement_error_sum_nm2": 4189.192299177666,
+    "nonadditivity_numerical_sign": "UNRESOLVED",
+    "second_upper_nm2": -272379.36318121385,
+    "second_refinement_error_sum_nm2": 2159.025219484669,
+    "second_wall_detectable": true,
+    "caveat": "Observed refinement differences are an empirical error estimate, not a rigorous theorem or seed confidence interval"
+  }
+]

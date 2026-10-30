@@ -1,0 +1,25 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 2 x 1 ]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g0_20261030_001/production/control_release_loop_HI/initial.data
+STEP 0 T_NS 0.0 N 110 EMIT 0 WALL_S 0.01
+STEP 66 T_NS 0.002015 N 110 EMIT 0 WALL_S 0.42
+STEP 131 T_NS 0.004034 N 110 EMIT 0 WALL_S 0.88
+STEP 198 T_NS 0.006047 N 108 EMIT 0 WALL_S 1.29
+STEP 268 T_NS 0.008053 N 102 EMIT 0 WALL_S 1.73
+STEP 344 T_NS 0.010069 N 94 EMIT 0 WALL_S 2.19
+STEP 432 T_NS 0.012088 N 86 EMIT 0 WALL_S 2.66
+STEP 539 T_NS 0.014096 N 70 EMIT 0 WALL_S 3.12
+STEP 687 T_NS 0.016104 N 55 EMIT 0 WALL_S 3.64
+STEP 893 T_NS 0.018112 N 34 EMIT 0 WALL_S 4.22
+/home/sakura/opendis/w4_g0_20261030_001/production/code/run.py:14: RuntimeWarning: Mean of empty slice
+  p=a['positions_nm'];p=p-p.mean(axis=0);ids=a['ids']
+/opt/miniforge3/envs/anvil/lib/python3.12/site-packages/numpy/_core/_methods.py:134: RuntimeWarning: invalid value encountered in divide
+  ret = um.true_divide(
+NETWORK_ANNIHILATED 919
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g0_20261030_001/production/control_release_loop_HI/final.data
+NUMERICAL_PASS SOURCE_3_EMISSION NOT_APPLICABLE STEPS 919 T_NS 0.018370479026146618 EMISSIONS 0

@@ -1,0 +1,14 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 2 x 1 ]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g0_20261030_001/production/cases/G0_threader_HII_none_mesh10/initial.data
+STEP 0 T_NS 0.0 N 70 EMIT 0 WALL_S 0.01
+STEP 440 T_NS 0.025027 N 156 EMIT 0 WALL_S 2.74
+STEP 868 T_NS 0.050051 N 264 EMIT 0 WALL_S 7.48
+STEP 1312 T_NS 0.075091 N 352 EMIT 0 WALL_S 15.38
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g0_20261030_001/production/cases/G0_threader_HII_none_mesh10/final.data
+NUMERICAL_PASS SOURCE_3_EMISSION NOT_APPLICABLE STEPS 1765 T_NS 0.10000000000000002 EMISSIONS 0

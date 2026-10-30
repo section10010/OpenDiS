@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "-u",
+    "/home/sakura/opendis/w4_g0_20261030_001/production/code/run.py",
+    "--repo",
+    "/home/sakura/opendis/src",
+    "--config",
+    "/home/sakura/opendis/w4_g0_20261030_001/production/configs/G0_loop_HI_upper_tau250_uncapped.json",
+    "--out",
+    "/home/sakura/opendis/w4_g0_20261030_001/production/cases/G0_loop_HI_upper_tau250_uncapped",
+    "--a0",
+    "/home/sakura/opendis/w4_g0_20261030_001/production/A0/gate_result.json"
+  ],
+  "cwd": "/home/sakura/opendis/w4_g0_20261030_001/production/code",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 4.706430563999675,
+  "log": "/home/sakura/opendis/w4_g0_20261030_001/production/logs/G0_loop_HI_upper_tau250_uncapped.log",
+  "omp_num_threads": "2"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "mode": "HI",
+      "status": "PASS",
+      "reaction_reconstruction": true,
+      "raw_contact_capped_distinguished": true
+    },
+    {
+      "mode": "HII",
+      "status": "PASS",
+      "reaction_reconstruction": true,
+      "raw_contact_capped_distinguished": true
+    }
+  ],
+  "native_engine": "/home/sakura/opendis/src/core/exadis/python/pyexadis.cpython-312-x86_64-linux-gnu.so"
+}

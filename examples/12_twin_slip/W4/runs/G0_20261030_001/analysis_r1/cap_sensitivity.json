@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "none",
+    "relative_area_change": 0.037115336297656946,
+    "timing_cap_insensitive": "NOT_QUALIFIED"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "lower",
+    "relative_area_change": 0.022212484653939327,
+    "timing_cap_insensitive": "NOT_QUALIFIED"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "upper",
+    "relative_area_change": 0.02219920795210648,
+    "timing_cap_insensitive": "NOT_QUALIFIED"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "both",
+    "relative_area_change": 0.0,
+    "timing_cap_insensitive": "PASS"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "none",
+    "relative_area_change": 0.06871769835824594,
+    "timing_cap_insensitive": "NOT_QUALIFIED"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "lower",
+    "relative_area_change": 0.05357695245202008,
+    "timing_cap_insensitive": "NOT_QUALIFIED"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "upper",
+    "relative_area_change": 0.05357695288852526,
+    "timing_cap_insensitive": "NOT_QUALIFIED"
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "wall": "both",
+    "relative_area_change": 0.010261119764456242,
+    "timing_cap_insensitive": "PASS"
+  }
+]

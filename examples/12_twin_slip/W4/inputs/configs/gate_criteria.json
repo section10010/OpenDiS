@@ -1,0 +1,53 @@
+{
+  "schema": "DDDPlan.ProposedCriteria.v1",
+  "status": "PROPOSED_FREEZE_BEFORE_CAMPAIGN",
+  "warning": "Project proposal, not universal DDD standard. Numeric checks alone cannot qualify material mechanisms.",
+  "numeric_reference": {
+    "rotation_orthogonality_error": {
+      "op": "le",
+      "limit": 1e-12
+    },
+    "burgers_residual_over_b": {
+      "op": "le",
+      "limit": 1e-08
+    },
+    "max_illegal_penetration_nm": {
+      "op": "le",
+      "limit": 1e-06
+    },
+    "normalized_contact_complementarity": {
+      "op": "le",
+      "limit": 1e-08
+    },
+    "normalized_contact_power": {
+      "op": "abs_le",
+      "limit": 1e-08
+    },
+    "reference_line_deposition_rel_error": {
+      "op": "le",
+      "limit": 1e-10
+    },
+    "primary_observable_refinement_rel_error": {
+      "op": "le",
+      "limit": 0.02
+    },
+    "primary_event_time_refinement_rel_error": {
+      "op": "le",
+      "limit": 0.05
+    }
+  },
+  "manual_hard_requirements": [
+    "same initial arrays for paired four-wall runs",
+    "correct matched boundary-value force comparison",
+    "native accepted-step and topology sweeps complete",
+    "reference no-dislocation twin does not create dynamic GND",
+    "common global loading for M/T",
+    "source and material calibration not tuned per thickness",
+    "small contrasts judged against numerical and statistical uncertainty"
+  ],
+  "plastic_closure": {
+    "formula": "abs_error <= 1e-12 + 1e-8 * reference_strain_norm",
+    "scope": "tensor convention verified first"
+  },
+  "material_prediction": "NOT_QUALIFIED_UNTIL_INDEPENDENT_CALIBRATION_AND_VALIDATION"
+}

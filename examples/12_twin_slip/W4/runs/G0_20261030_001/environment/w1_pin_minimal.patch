@@ -1,0 +1,47 @@
+diff --git a/src/collision_types/collision_retroactive.cpp b/src/collision_types/collision_retroactive.cpp
+index 773a134..9b665b4 100644
+--- a/src/collision_types/collision_retroactive.cpp
++++ b/src/collision_types/collision_retroactive.cpp
+@@ -990,9 +990,9 @@ Vec3 AdjustCollisionPoint(System* system, SerialDisNet* network, int n1, int n2,
+ 
+     // If a node is a 'fixed' node it can't be relocated, so use
+     // that node's coordinates as the collision point
+-    if (network->conn[n1].num == 1) {
++    if (network->nodes[n1].constraint == PINNED_NODE || network->conn[n1].num == 1) {
+         return p1;
+-    } else if (network->conn[n2].num == 1) {
++    } else if (network->nodes[n2].constraint == PINNED_NODE || network->conn[n2].num == 1) {
+         return p2;
+     }
+ 
+@@ -1222,7 +1222,7 @@ Vec3 AdjustMergePoint(System* system, SerialDisNet* network, int n, const Vec3&
+ 
+     // If the node is a 'fixed' node it can't be relocated, so use
+     // that node's coordinates as the collision point
+-    if (network->conn[n].num == 1) return p;
++    if (network->nodes[n].constraint == PINNED_NODE || network->conn[n].num == 1) return p;
+ 
+     double newplanecond = 0.875;
+     double npc2 = newplanecond * newplanecond;
+diff --git a/src/network.cpp b/src/network.cpp
+index 11bdc71..1d01420 100644
+--- a/src/network.cpp
++++ b/src/network.cpp
+@@ -201,6 +201,17 @@ int SerialDisNet::split_node(int i, std::vector<int>& arms)
+  *-------------------------------------------------------------------------*/
+ bool SerialDisNet::merge_nodes_position(int n1, int n2, const Vec3& pos, Mat33& dEp)
+ {
++    // A pinned node is a fixed spatial anchor, regardless of argument order.
++    // Keep its tag and constraint, and reject merges that would move either
++    // pinned endpoint (including attempts to combine distinct fixed anchors).
++    if (nodes[n2].constraint == PINNED_NODE && nodes[n1].constraint != PINNED_NODE)
++        std::swap(n1, n2);
++    for (int n : {n1, n2}) {
++        if (nodes[n].constraint == PINNED_NODE &&
++            (cell.pbc_position(nodes[n].pos, pos)-nodes[n].pos).norm2() > 1e-16)
++            return true;
++    }
++
+     // Save original nodes in case we need to revert the merge
+     SaveNode saved_node1 = save_node(n1);
+     SaveNode saved_node2 = save_node(n2);

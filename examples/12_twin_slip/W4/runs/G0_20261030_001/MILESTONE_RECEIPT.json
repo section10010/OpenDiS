@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-30",
+  "branch": "codex/w4-g0-robustness",
+  "parent_revision": "5b3c900",
+  "w3_python_baseline_files": 19,
+  "w3_baseline_byte_comparison": "PASS",
+  "w1_native_patch": {
+    "additions": 14,
+    "deletions": 3,
+    "changed_this_wave": false
+  },
+  "native_cases": 80,
+  "g0_review": "analysis_r5/gate_review.json",
+  "g0_status": "PASS",
+  "g0_scope": "effective FCC I0 numerical refinement and second-wall causal increment",
+  "actual_time_cap_insensitivity": "NOT_QUALIFIED",
+  "g1_initial_force_checks": 7,
+  "g1_initial_force_status": "PASS",
+  "g1_gate": "NOT_RUN",
+  "g1_r2_r3_actual_array_regression": "PASS; numeric rtol=1e-12 atol=1e-25; nonnumeric exact",
+  "active_native_workers_at_closeout": 0,
+  "complete_raw_tar_bytes": 3297966080,
+  "merged_main": false,
+  "long_term_project_complete": false
+}

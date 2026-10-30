@@ -1,0 +1,12 @@
+Test project /home/sakura/opendis/build
+    Start 14: full_run.02_frank_read_src.test_frank_read_src_pydis_exadis_elast.coarsen_mode0
+1/2 Test #14: full_run.02_frank_read_src.test_frank_read_src_pydis_exadis_elast.coarsen_mode0 ...   Passed    9.75 sec
+    Start 15: full_run.02_frank_read_src.test_frank_read_src_pydis_exadis_elast.coarsen_mode1
+2/2 Test #15: full_run.02_frank_read_src.test_frank_read_src_pydis_exadis_elast.coarsen_mode1 ...   Passed   10.08 sec
+
+100% tests passed out of 2
+
+Label Time Summary:
+full_run    =  19.83 sec*proc (2 tests)
+
+Total Test time (real) =  19.83 sec

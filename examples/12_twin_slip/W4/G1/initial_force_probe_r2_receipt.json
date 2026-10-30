@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "shared_force_probe.py",
+    "--g0-root",
+    "/home/sakura/opendis/w4_g0_20261030_001/production",
+    "--repo",
+    "/home/sakura/opendis/src",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_001/initial_force_probe_r2"
+  ],
+  "cwd": "/home/sakura/opendis/w4_g1_20261030_001/code",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.6749925740004983,
+  "log": "/home/sakura/opendis/w4_g1_20261030_001/initial_force_probe_r2.log",
+  "omp_num_threads": "2"
+}

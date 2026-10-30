@@ -1,0 +1,34 @@
+[
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "none",
+    "relative_area_error": 0.0,
+    "status": "PASS",
+    "convention": "M/2, t*2 and maxdt*2; geometric-clock test, not a second material mechanism"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "lower",
+    "relative_area_error": 0.0,
+    "status": "PASS",
+    "convention": "M/2, t*2 and maxdt*2; geometric-clock test, not a second material mechanism"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "upper",
+    "relative_area_error": 0.0,
+    "status": "PASS",
+    "convention": "M/2, t*2 and maxdt*2; geometric-clock test, not a second material mechanism"
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "wall": "both",
+    "relative_area_error": 0.0,
+    "status": "PASS",
+    "convention": "M/2, t*2 and maxdt*2; geometric-clock test, not a second material mechanism"
+  }
+]

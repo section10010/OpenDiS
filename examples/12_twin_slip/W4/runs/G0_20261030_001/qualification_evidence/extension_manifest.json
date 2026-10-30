@@ -1,0 +1,72 @@
+{
+  "status": "FROZEN_BEFORE_EXTENSION",
+  "reason": "Actual tail observable exceeds unchanged 2 percent criterion",
+  "prior_review": "/home/sakura/opendis/w4_g0_20261030_001/production/analysis_r2",
+  "families": [
+    [
+      "loop",
+      "HI"
+    ]
+  ],
+  "jobs": [
+    {
+      "case_id": "G0_loop_HI_none_mesh5_timehalf",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none",
+      "group": "resolution_repair"
+    },
+    {
+      "case_id": "G0_loop_HI_none_mesh5_timequarter",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none",
+      "group": "resolution_repair"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_mesh5_timehalf",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower",
+      "group": "resolution_repair"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_mesh5_timequarter",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower",
+      "group": "resolution_repair"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_mesh5_timehalf",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper",
+      "group": "resolution_repair"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_mesh5_timequarter",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper",
+      "group": "resolution_repair"
+    },
+    {
+      "case_id": "G0_loop_HI_both_mesh5_timehalf",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both",
+      "group": "resolution_repair"
+    },
+    {
+      "case_id": "G0_loop_HI_both_mesh5_timequarter",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both",
+      "group": "resolution_repair"
+    }
+  ],
+  "max_extension_wall_s": 1800,
+  "changes": "Coupled spatial resolution 10/4 to 5/2 nm and independent time halving; no material/interface/load/source changes",
+  "stopping": "No further automatic resolution expansion in this amendment; report UNRESOLVED/CENSORED if still insufficient"
+}

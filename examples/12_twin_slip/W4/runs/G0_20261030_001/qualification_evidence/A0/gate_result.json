@@ -1,0 +1,11 @@
+{
+  "gate": "A0",
+  "status": "PASS",
+  "pure_contracts": 5,
+  "native_response_checks": 10,
+  "native_pin_cases": 3,
+  "upstream_unit_cases": 12,
+  "upstream_FR_cases": 2,
+  "physics_execution_unlocked": true,
+  "no_VCoNi_material_qualification": true
+}

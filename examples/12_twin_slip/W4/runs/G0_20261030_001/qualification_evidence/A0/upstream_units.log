@@ -1,0 +1,32 @@
+Test project /home/sakura/opendis/build
+      Start  1: unit.test1_node_force.test_disnet_loop_force_pydis_exadis
+ 1/12 Test  #1: unit.test1_node_force.test_disnet_loop_force_pydis_exadis ...................   Passed    0.51 sec
+      Start  2: unit.test1_node_force.test_onenodeforce_exadis
+ 2/12 Test  #2: unit.test1_node_force.test_onenodeforce_exadis ..............................   Passed    0.93 sec
+      Start  3: unit.test1_node_force.test_onenodeforce_pydis
+ 3/12 Test  #3: unit.test1_node_force.test_onenodeforce_pydis ...............................   Passed   20.61 sec
+      Start  4: unit.test1_node_force.test_seg_stress_pydis
+ 4/12 Test  #4: unit.test1_node_force.test_seg_stress_pydis .................................   Passed    0.33 sec
+      Start  5: unit.test1_node_force.test_segseg_force_pydis_exadis
+ 5/12 Test  #5: unit.test1_node_force.test_segseg_force_pydis_exadis ........................   Passed    0.48 sec
+      Start  6: unit.test1_node_force.test_segseg_force_torch
+ 6/12 Test  #6: unit.test1_node_force.test_segseg_force_torch ...............................   Passed    0.07 sec
+      Start  7: unit.test2_topol_op.test_loop_topol_op_pydis_exadis
+ 7/12 Test  #7: unit.test2_topol_op.test_loop_topol_op_pydis_exadis .........................   Passed    0.39 sec
+      Start  8: unit.test3_remesh_rule.test_remesh_lengthbased_pydis_exadis.coarsen_mode0
+ 8/12 Test  #8: unit.test3_remesh_rule.test_remesh_lengthbased_pydis_exadis.coarsen_mode0 ...   Passed    2.33 sec
+      Start  9: unit.test3_remesh_rule.test_remesh_lengthbased_pydis_exadis.coarsen_mode1
+ 9/12 Test  #9: unit.test3_remesh_rule.test_remesh_lengthbased_pydis_exadis.coarsen_mode1 ...   Passed    3.11 sec
+      Start 10: unit.test4_collision_mode.test_collision_mode_pydis_exadis
+10/12 Test #10: unit.test4_collision_mode.test_collision_mode_pydis_exadis ..................   Passed   10.95 sec
+      Start 11: unit.test4_collision_mode.test_swept_distance
+11/12 Test #11: unit.test4_collision_mode.test_swept_distance ...............................   Passed    0.31 sec
+      Start 12: unit.test5_topology_mode.test_topology_mode_pydis_exadis
+12/12 Test #12: unit.test5_topology_mode.test_topology_mode_pydis_exadis ....................   Passed    1.26 sec
+
+100% tests passed out of 12
+
+Label Time Summary:
+unit    =  41.29 sec*proc (12 tests)
+
+Total Test time (real) =  41.29 sec

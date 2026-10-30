@@ -1,0 +1,100 @@
+[
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "label": "cap4000",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "label": "mesh10",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "label": "mesh10_timehalf",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "label": "mesh40",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "label": "mobility_half_rescaled",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "label": "tau250_uncapped",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "label": "uncapped_diagnostic",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "label": "cap4000",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "label": "mesh10",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "label": "mesh10_timehalf",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "label": "mesh40",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "label": "mobility_half_rescaled",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "label": "tau250_uncapped",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  },
+  {
+    "kind": "threader",
+    "mode": "HII",
+    "label": "uncapped_diagnostic",
+    "identical_initial_arrays": true,
+    "other_parameters_equal": true
+  }
+]

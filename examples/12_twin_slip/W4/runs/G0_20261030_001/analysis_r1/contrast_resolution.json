@@ -1,0 +1,13 @@
+[
+  {
+    "kind": "loop",
+    "mode": "HI",
+    "finest_nonadditivity_nm2": 4186.241148134577,
+    "observed_refinement_error_sum_nm2": 13274.812447310236,
+    "nonadditivity_numerical_sign": "UNRESOLVED",
+    "second_upper_nm2": -197192.73329659502,
+    "second_refinement_error_sum_nm2": 4476.867164672454,
+    "second_wall_detectable": true,
+    "caveat": "Observed refinement differences are an empirical error estimate, not a rigorous theorem or seed confidence interval"
+  }
+]

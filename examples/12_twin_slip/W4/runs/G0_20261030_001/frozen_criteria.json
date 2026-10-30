@@ -1,0 +1,23 @@
+{
+  "status": "FROZEN_BEFORE_NATIVE_SCREEN",
+  "source": "configs/gate_criteria.json",
+  "primary_refinement_relative": 0.02,
+  "event_time_refinement_relative": 0.05,
+  "burgers_residual_b": 1e-08,
+  "contact_power_normalized": 1e-08,
+  "contact_normal_velocity_normalized": 1e-08,
+  "penetration_nm": 1e-06,
+  "plastic_closure": "norm <= 1e-12 + 1e-8 * native_strain_norm",
+  "contact_normalization": "force norm times max(raw, constrained velocity norm); near-zero outputs retain input scale",
+  "nonadditivity": "UNRESOLVED unless greater than sum of all four absolute refinement differences; no statistical CI from frames",
+  "cap_sensitivity": "Compare actual-time responses; a >2 percent change invalidates cap-insensitive timing. Second-wall causal sign must survive each resolved diagnostic; uncapped is mathematical only.",
+  "resource": {
+    "max_campaign_wall_s": 3600,
+    "max_case_wall_s": "preserve each input",
+    "max_nodes": 5000,
+    "max_segments": 10000
+  },
+  "planned_cases": 72,
+  "screen_cases": 24,
+  "scope": "effective FCC I0; not VCoNi calibration or collective thickness comparison"
+}

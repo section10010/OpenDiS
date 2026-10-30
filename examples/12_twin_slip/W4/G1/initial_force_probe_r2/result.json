@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "scope": "G1 initial geometry/common macro stress/one-network native elastic coupling only",
+  "checks": [
+    {
+      "test": "M_actual_native_geometry_load",
+      "status": "PASS",
+      "nodes": 19
+    },
+    {
+      "test": "T_actual_native_geometry_load",
+      "status": "PASS",
+      "nodes": 19
+    },
+    {
+      "test": "MT_actual_native_geometry_load",
+      "status": "PASS",
+      "nodes": 38
+    },
+    {
+      "test": "M_coupling_from_other_side",
+      "status": "PASS",
+      "cross_force_norm_N": 5.872392913396792e-12,
+      "relative_to_single": 0.0004456863924698715
+    },
+    {
+      "test": "T_coupling_from_other_side",
+      "status": "PASS",
+      "cross_force_norm_N": 6.002369409526237e-12,
+      "relative_to_single": 0.0004555509837055246
+    },
+    {
+      "test": "common_macro_stress_native_PK_tensor",
+      "status": "PASS",
+      "relative_error": 5.176363094096952e-15
+    },
+    {
+      "test": "cross_network_pair_force_balance",
+      "status": "PASS",
+      "normalized_residual": 3.1675961117806995e-12
+    }
+  ],
+  "common_interface": {
+    "id": "CTB0",
+    "z_nm": 2000.0
+  },
+  "orientation": {
+    "M": [
+      [
+        0.7071067811865475,
+        -0.7071067811865475,
+        0.0
+      ],
+      [
+        0.4082482904638631,
+        0.4082482904638631,
+        -0.8164965809277261
+      ],
+      [
+        0.5773502691896258,
+        0.5773502691896258,
+        0.5773502691896258
+      ]
+    ],
+    "T": [
+      [
+        -5.968105006014015e-17,
+        -0.7071067811865476,
+        0.7071067811865476
+      ],
+      [
+        0.816496580927726,
+        -0.4082482904638629,
+        -0.4082482904638631
+      ],
+      [
+        0.5773502691896258,
+        0.5773502691896258,
+        0.5773502691896258
+      ]
+    ]
+  },
+  "shared_contact_dynamics": "NOT_RUN",
+  "host_identity_remesh_collision_topology": "NOT_RUN",
+  "G1_gate": "NOT_RUN",
+  "VCoNi": "NOT_QUALIFIED",
+  "native_module": "/home/sakura/opendis/src/core/exadis/python/pyexadis.cpython-312-x86_64-linux-gnu.so",
+  "command": [
+    "shared_force_probe.py",
+    "--g0-root",
+    "/home/sakura/opendis/w4_g0_20261030_001/production",
+    "--repo",
+    "/home/sakura/opendis/src",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_001/initial_force_probe_r2"
+  ]
+}

@@ -1,0 +1,8 @@
+__pycache__/
+runs/**/native/
+runs/**/*.tar
+runs/**/*.zip
+runs/**/reference_test_tmp/
+runs/**/local_tests.log
+runs/**/reference_tests.log
+G1/runs/

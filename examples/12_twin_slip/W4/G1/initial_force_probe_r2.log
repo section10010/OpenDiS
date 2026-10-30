@@ -1,0 +1,17 @@
+Kokkos::OpenMP::initialize WARNING: OMP_PROC_BIND environment variable not set
+  In general, for best performance with OpenMP 4.0 or better set OMP_PROC_BIND=spread and OMP_PLACES=threads
+  For best performance with OpenMP 3.1 set OMP_PROC_BIND=true
+  For unit testing set OMP_PROC_BIND=false
+
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 2 x 1 ]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_001/initial_force_probe_r2/M_initial.data
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_001/initial_force_probe_r2/T_initial.data
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_001/initial_force_probe_r2/MT_initial.data
+G1_INITIAL_FORCE_PROBE_PASS 7 G1_GATE_NOT_RUN

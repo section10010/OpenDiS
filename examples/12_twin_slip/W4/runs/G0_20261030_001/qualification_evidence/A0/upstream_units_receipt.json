@@ -1,0 +1,16 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "/home/sakura/opendis/build",
+    "-L",
+    "unit",
+    "--output-on-failure"
+  ],
+  "cwd": "/home/sakura/opendis/build",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 41.31924002100004,
+  "log": "/home/sakura/opendis/w4_g0_20261030_001/production/A0/upstream_units.log",
+  "omp_num_threads": "2"
+}

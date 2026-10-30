@@ -1,0 +1,18 @@
+{
+  "client_execution_date": "2026-10-30",
+  "python": "/opt/miniforge3/envs/anvil/bin/python",
+  "python_version": "3.12.15 (main, Oct 13 2026, 16:52:04) [GCC 15.3.0]",
+  "numpy": "2.5.4",
+  "platform": "Linux-7.3.0-4-cachyos-x86_64-with-glibc2.44",
+  "cpu_count": 8,
+  "native_module": "/home/sakura/opendis/src/core/exadis/python/pyexadis.cpython-312-x86_64-linux-gnu.so",
+  "native_module_bytes": 5343984,
+  "root_revision": "78cdab0bd31b433fcc85d4e39eddc60993cabb6c",
+  "exadis_revision": "99b17cac346b2f6bf323acd843029268a0a8b196",
+  "windows_development_branch": "codex/w4-g0-robustness",
+  "windows_base_revision": "5b3c900",
+  "code_identity": "Per-case immutable code_snapshot; explicit commits recorded at handoff",
+  "exported_energy_names": [],
+  "native_boundary_scope": "Nonperiodic direct; not free-surface image stresses",
+  "git_status": " m core/exadis\n?? examples/10_strain_hardening/run10.log\n?? examples/10_strain_hardening/run10.pid\n?? examples/12_twin_slip/\n"
+}

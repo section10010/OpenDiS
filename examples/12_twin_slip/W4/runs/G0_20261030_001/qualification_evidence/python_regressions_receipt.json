@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "-m",
+    "unittest",
+    "test_configuration",
+    "test_lineage",
+    "test_diagnostics",
+    "-v"
+  ],
+  "cwd": "/home/sakura/opendis/w4_g0_20261030_001/production/code",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 0.8229717039998832,
+  "log": "/home/sakura/opendis/w4_g0_20261030_001/production/python_regressions.log",
+  "omp_num_threads": "2"
+}

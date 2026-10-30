@@ -1,0 +1,509 @@
+{
+  "status": "NOT_RUN",
+  "jobs": [
+    {
+      "case_id": "G0_loop_HI_none_cap4000",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_loop_HI_none_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_loop_HI_none_tau250_uncapped",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_cap4000",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_tau250_uncapped",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_cap4000",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_tau250_uncapped",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_loop_HI_both_cap4000",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_tau250_uncapped",
+      "group": "screen",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_none_cap4000",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_threader_HII_none_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_threader_HII_none_tau250_uncapped",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_cap4000",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_tau250_uncapped",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_cap4000",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_tau250_uncapped",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_threader_HII_both_cap4000",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_uncapped_diagnostic",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_tau250_uncapped",
+      "group": "screen",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_none_mesh40",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_loop_HI_none_mesh10",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_loop_HI_none_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_loop_HI_none_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_mesh40",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_mesh10",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_tol_tenth",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_rann_half",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_topology_off",
+      "group": "operator_ablation",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_lower_remesh_off",
+      "group": "operator_ablation",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_mesh40",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_mesh10",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_loop_HI_upper_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_loop_HI_both_mesh40",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_mesh10",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_tol_tenth",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_rann_half",
+      "group": "refinement",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_topology_off",
+      "group": "operator_ablation",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_loop_HI_both_remesh_off",
+      "group": "operator_ablation",
+      "kind": "loop",
+      "mode": "HI",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_none_mesh40",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_threader_HII_none_mesh10",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_threader_HII_none_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_threader_HII_none_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "none"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_mesh40",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_mesh10",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_tol_tenth",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_rann_half",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_topology_off",
+      "group": "operator_ablation",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_lower_remesh_off",
+      "group": "operator_ablation",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "lower"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_mesh40",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_mesh10",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_threader_HII_upper_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "upper"
+    },
+    {
+      "case_id": "G0_threader_HII_both_mesh40",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_mesh10",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_mesh10_timehalf",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_mobility_half_rescaled",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_tol_tenth",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_rann_half",
+      "group": "refinement",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_topology_off",
+      "group": "operator_ablation",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    },
+    {
+      "case_id": "G0_threader_HII_both_remesh_off",
+      "group": "operator_ablation",
+      "kind": "threader",
+      "mode": "HII",
+      "wall": "both"
+    }
+  ]
+}

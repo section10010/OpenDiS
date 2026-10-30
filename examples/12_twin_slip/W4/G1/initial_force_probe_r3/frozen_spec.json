@@ -1,0 +1,20 @@
+{
+  "schema": "W4.G1.InitialSharedForceProbe.v1",
+  "scope": "Initial native geometry and elastic field only; shared contact evolution NOT_RUN",
+  "common_native_updates": {
+    "kind": "propagation_loop",
+    "mode": "HI",
+    "stress_pa": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 1100000000.0]],
+    "integrator": "EulerForward",
+    "vmax_m_s": null,
+    "Medge": 32051.5,
+    "Mscrew": 32051.5,
+    "walls": [],
+    "end_ns": 0.02
+  },
+  "interface": {"id": "CTB0", "z_nm": 2000.0},
+  "regions": [
+    {"region": "M", "phase": "matrix", "center_nm": [1800.0, 2000.0, 1930.0], "allowed_normal": [0, 0, -1]},
+    {"region": "T", "phase": "twin", "center_nm": [2200.0, 2000.0, 2070.0], "allowed_normal": [0, 0, 1]}
+  ]
+}

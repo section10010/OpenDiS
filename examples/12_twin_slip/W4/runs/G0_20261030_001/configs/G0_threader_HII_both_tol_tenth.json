@@ -1,0 +1,101 @@
+{
+  "schema": "OpenDiS.W3.v1",
+  "name": "G0_threader_HII_both_tol_tenth",
+  "gate": "B1",
+  "kind": "prepared_threader",
+  "material_scope": "effective FCC; not calibrated VCoNi",
+  "b_m": 2.55e-10,
+  "mu_pa": 54600000000.0,
+  "nu": 0.324,
+  "core_a_b": 6.0,
+  "Medge": 64103.0,
+  "Mscrew": 64103.0,
+  "friction_pa": 0.0,
+  "vmax_m_s": null,
+  "box_nm": [
+    4000.0,
+    4000.0,
+    4000.0
+  ],
+  "periodic": [
+    false,
+    false,
+    false
+  ],
+  "stress_pa": [
+    [
+      244948974.27831775,
+      141421356.23730952,
+      50000000.0
+    ],
+    [
+      141421356.23730952,
+      -244948974.2783179,
+      86602540.3784439
+    ],
+    [
+      50000000.0,
+      86602540.3784439,
+      -3.559238568635684e-09
+    ]
+  ],
+  "phase": "matrix",
+  "mode": "HII",
+  "slip_index": null,
+  "source_count": 1,
+  "source_gauge_nm": 240.0,
+  "backbone_offset_nm": 80.0,
+  "bow_nm": 2.0,
+  "loop_radius_nm": 60.0,
+  "threader_separation_nm": 150.0,
+  "standoff_nm": 10.0,
+  "emission_sign": 1,
+  "seed": 42,
+  "center_nm": null,
+  "hT_nm": 200.0,
+  "hM_nm": 400.0,
+  "sources_twin": 60,
+  "sources_matrix": 120,
+  "placement_guard_nm": 5.0,
+  "walls": [
+    {
+      "interface_id": "lower",
+      "z_nm": 1900.0,
+      "inward": 1,
+      "enabled": true
+    },
+    {
+      "interface_id": "upper",
+      "z_nm": 2100.0,
+      "inward": -1,
+      "enabled": true
+    }
+  ],
+  "force_mode": "direct",
+  "grid": [
+    48,
+    48,
+    48
+  ],
+  "integrator": "EulerForward",
+  "maxseg_nm": 20.0,
+  "minseg_nm": 4.0,
+  "rann_nm": 0.6,
+  "rtol_nm": 0.1,
+  "maxdt_ps": 0.5,
+  "firstdt_ps": 0.05,
+  "max_node_step_nm": 0.25,
+  "contact_tol_nm": 1e-07,
+  "end_ns": 0.1,
+  "max_steps": 100000,
+  "max_wall_s": 300.0,
+  "threads": 2,
+  "frame_interval_ns": 0.025,
+  "stop_emissions": 0,
+  "topology": true,
+  "collision": true,
+  "remesh": true,
+  "max_nodes": 5000,
+  "max_segments": 10000,
+  "diagnostic_chunk_steps": 100
+}

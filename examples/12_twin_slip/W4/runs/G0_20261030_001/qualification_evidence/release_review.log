@@ -1,0 +1,12 @@
+COMMAND_EXIT 0 TIMEOUT False WALL_S 4.65
+Traceback (most recent call last):
+  File "/home/sakura/opendis/w4_g0_20261030_001/production/code/g0_release.py", line 26, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/sakura/opendis/w4_g0_20261030_001/production/code/g0_release.py", line 20, in main
+    gaps=[float((w['inward']*(after['positions_nm'][:,2]-w['z_nm'])).min()) for w in c['walls']]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniforge3/envs/anvil/lib/python3.12/site-packages/numpy/_core/_methods.py", line 45, in _amin
+    return umr_minimum(a, axis, None, out, keepdims, initial, where)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-size array to reduction operation minimum which has no identity
