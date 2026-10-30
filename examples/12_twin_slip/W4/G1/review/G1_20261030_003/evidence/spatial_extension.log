@@ -1,0 +1,12 @@
+RUN mesh1p25_M
+DONE mesh1p25_M 0 979.83
+RUN mesh1p25_T
+DONE mesh1p25_T 0 662.06
+Traceback (most recent call last):
+  File "/home/sakura/opendis/w4_g1_20261030_003/code/extend_spatial.py", line 38, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/sakura/opendis/w4_g1_20261030_003/code/extend_spatial.py", line 29, in main
+    if remaining<1500:raise RuntimeError('CENSORED: insufficient frozen remaining resource allowance')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CENSORED: insufficient frozen remaining resource allowance

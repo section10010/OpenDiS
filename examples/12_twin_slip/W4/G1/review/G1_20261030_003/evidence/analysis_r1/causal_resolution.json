@@ -1,0 +1,24 @@
+[
+  {
+    "host": "M",
+    "delta_area_nm2": 31.272129882221634,
+    "observed_spatial_difference_nm2": 0.340091135345574,
+    "observed_time_difference_nm2": 0.37618818267219467,
+    "empirical_error_nm2": 0.735538496675872,
+    "status": "PASS",
+    "observed_origin_difference_nm2": 0.019259178658103338,
+    "origin_sensitivity": "PASS",
+    "note": "Frozen deterministic resolution criterion; empirical differences are neither a rigorous error bound nor a seed CI"
+  },
+  {
+    "host": "T",
+    "delta_area_nm2": 31.602949160871503,
+    "observed_spatial_difference_nm2": 0.3910922528575611,
+    "observed_time_difference_nm2": 0.4383195824975701,
+    "empirical_error_nm2": 0.8525283831404522,
+    "status": "PASS",
+    "observed_origin_difference_nm2": 0.023116547785321018,
+    "origin_sensitivity": "PASS",
+    "note": "Frozen deterministic resolution criterion; empirical differences are neither a rigorous error bound nor a seed CI"
+  }
+]

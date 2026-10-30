@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "/home/sakura/opendis/w4_g1_20261030_003/identity_candidate/qualify_identity_vectorization.py",
+    "--root",
+    "/home/sakura/opendis/w4_g1_20261030_003",
+    "--historical-root",
+    "/home/sakura/opendis/w4_g1_20261030_002",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_003/identity_equivalence"
+  ],
+  "exit_code": 0,
+  "wall_s": 0.9730577179998363
+}

@@ -1,0 +1,6 @@
+{
+  "actual_run": "/home/sakura/opendis/w4_g1_20261030_002/g0_regression",
+  "same_native_build": true,
+  "source": "Fresh actual A0, 4 trajectories and raw logs copied exactly. Full velocity/frames remain in historical root and its full archive.",
+  "auxiliary_strict_replay": "FAIL retained"
+}

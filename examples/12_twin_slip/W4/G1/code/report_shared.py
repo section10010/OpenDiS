@@ -5,6 +5,8 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.collections import LineCollection
+from matplotlib.ticker import MaxNLocator,FormatStrFormatter
 from mpl_toolkits.mplot3d.art3d import Line3DCollection,Poly3DCollection
 
 
@@ -15,6 +17,7 @@ def main():
     def load(p):return json.loads(Path(p).read_text())
     gate=load(a.analysis/'gate_review.json');metrics=load(a.analysis/'metrics.json');contrasts=load(a.analysis/'paired_contrasts.json')
     causal=load(a.analysis/'causal_resolution.json');refine=load(a.analysis/'refinement.json');release=load(a.analysis/'reverse_release.json');ctb=load(a.analysis/'ctb_ablation.json')
+    finest=gate.get('finest_forward_level','mesh2p5_timehalf')
     aliases=load(root/'case_aliases.json').get('aliases',{}) if (root/'case_aliases.json').exists() else {}
     def folder(name):return root/'cases'/aliases.get(name,name)
     colors={'M':'#2879B9','T':'#D87832'}
@@ -26,7 +29,7 @@ def main():
     fig=plt.figure(figsize=(12,7));allx=[];data={}
     for pop in ('M','T','MT'):
         for state in ('initial','final'):
-            with np.load(folder('mesh2p5_timehalf_'+pop)/(state+'.npz')) as z:data[pop,state]={k:z[k] for k in ('positions_nm','ids','segment_host')}
+            with np.load(folder(finest+'_'+pop)/(state+'.npz')) as z:data[pop,state]={k:z[k] for k in ('positions_nm','ids','segment_host')}
             allx.append(data[pop,state]['positions_nm']/1000)
     points=np.concatenate(allx);lo=points.min(axis=0)-.025;hi=points.max(axis=0)+.025
     for j,pop in enumerate(('M','T','MT')):
@@ -34,17 +37,36 @@ def main():
             ax=fig.add_subplot(2,3,row*3+j+1,projection='3d');d=data[pop,state];x=d['positions_nm']/1000
             for host in ('M','T'):
                 edge=d['segment_host']==host
+                if not edge.any():continue
                 ax.add_collection3d(Line3DCollection(x[d['ids'][edge]],colors=colors[host],linewidths=1.3))
             plane=[(lo[0],lo[1],2),(hi[0],lo[1],2),(hi[0],hi[1],2),(lo[0],hi[1],2)]
             ax.add_collection3d(Poly3DCollection([plane],facecolor='#A9B7BC',alpha=.16,edgecolor='#71818A',linewidth=.4))
             ax.set(xlim=(lo[0],hi[0]),ylim=(lo[1],hi[1]),zlim=(lo[2],hi[2]),xlabel='x (um)',ylabel='y (um)',zlabel='z (um)')
             ax.set_title({'M':'M-only','T':'T-only','MT':'M + T'}[pop]+(' | initial' if state=='initial' else ' | 0.025 ns'))
             ax.view_init(elev=23,azim=-58);ax.set_box_aspect(hi-lo);ax.tick_params(labelsize=7)
+            ax.xaxis.set_major_locator(MaxNLocator(3));ax.zaxis.set_major_locator(MaxNLocator(4))
+            ax.set_yticks([lo[1],hi[1]]);ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'));ax.grid(False)
+            for axis in (ax.xaxis,ax.yaxis,ax.zaxis):axis.pane.set_facecolor('white')
     fig.suptitle('One shared CTB: actual native networks, common axes',fontsize=14)
-    save(fig,'G1_native_networks',['mesh2p5_timehalf_'+p for p in ('M','T','MT')])
+    save(fig,'G1_native_networks',[finest+'_'+p for p in ('M','T','MT')])
+    fig,axs=plt.subplots(1,4,figsize=(13,3.4));specs=[('M','M','M-only'),('MT','M','M in M + T'),('T','T','T-only'),('MT','T','T in M + T')]
+    projected=[]
+    for ax,(pop,host,title) in zip(axs,specs):
+        path=folder(finest+'_'+pop);source=next(s for s in load(path/'sources.json') if s['region']==host)['selected_slip']
+        center=np.array(source['center_nm']);basis=np.array([source['q'],source['p']]).T
+        for state,style,color in [('initial','--','#9B9FA3'),('final','-',colors[host])]:
+            with np.load(path/(state+'.npz')) as z:
+                edge=z['segment_host']==host;xy=(z['positions_nm']-center)@basis;segments=xy[z['ids'][edge]]
+            projected.append(segments.reshape(-1,2));ax.add_collection(LineCollection(segments,colors=color,linestyles=style,linewidths=1.4 if state=='final' else .9))
+        trace=(2000-center[2])/source['p'][2];ax.axhline(trace,color='#6B7A85',linewidth=.9,linestyle=':');ax.set_title(title)
+        ax.set(xlabel='q in source plane (nm)',ylabel='p in source plane (nm)');ax.set_aspect('equal');ax.xaxis.set_major_locator(MaxNLocator(3));ax.yaxis.set_major_locator(MaxNLocator(4))
+    xy=np.concatenate(projected);low=xy.min(axis=0)-8;high=xy.max(axis=0)+8
+    for ax in axs:ax.set(xlim=(low[0],high[0]),ylim=(low[1],high[1]))
+    fig.suptitle('Actual glide-plane projections | gray: initial, color: final, dotted: CTB trace',fontsize=11);fig.tight_layout()
+    save(fig,'G1_actual_glide_planes',[finest+'_'+p for p in ('M','T','MT')])
     fig,axs=plt.subplots(1,3,figsize=(13,3.8))
     for pop,ls in [('M','--'),('T',':'),('MT','-')]:
-        rows=list(csv.DictReader((folder('mesh2p5_timehalf_'+pop)/'history.csv').open()))
+        rows=list(csv.DictReader((folder(finest+'_'+pop)/'history.csv').open()))
         t=np.array([float(r['time_ns']) for r in rows])
         for host in pop:
             axs[0].plot(t,[float(r[host+'_swept_area_nm2'])/1e6 for r in rows],ls,color=colors[host],label=host+' in '+pop,linewidth=1.4)
@@ -54,9 +76,10 @@ def main():
     levels=list(contrasts)
     for host in ('M','T'):
         axs[2].plot(range(len(levels)),[contrasts[l][host]['area_difference_nm2'] for l in levels],'o-',color=colors[host],label=host)
-    axs[2].axhline(0,color='.5',linewidth=.7);axs[2].set_xticks(range(len(levels)),['10','10 t/2','10 t/4','5','2.5','2.5 t/2'],rotation=35)
+    tick={'base':'10','timehalf':'10 t/2','timequarter':'10 t/4','mesh5':'5','mesh2p5':'2.5','mesh2p5_timehalf':'2.5 t/2','mesh1p25':'1.25'}
+    axs[2].axhline(0,color='.5',linewidth=.7);axs[2].set_xticks(range(len(levels)),[tick[l] for l in levels],rotation=35)
     axs[2].set(ylabel='MT minus single swept area (nm$^2$)',xlabel='Frozen numerical refinement');axs[2].legend()
-    fig.tight_layout();save(fig,'G1_propagation_and_paired_difference',['mesh2p5_timehalf_M','mesh2p5_timehalf_T','mesh2p5_timehalf_MT','all six refinement levels'])
+    fig.tight_layout();save(fig,'G1_propagation_and_paired_difference',[finest+'_'+p for p in ('M','T','MT')]+['all frozen refinement levels'])
     fig,axs=plt.subplots(1,2,figsize=(9,3.6))
     for pop,ls in [('M','--'),('T',':'),('MT','-')]:
         rows=list(csv.DictReader((folder('reverse_'+pop)/'history.csv').open()));t=[float(r['time_ns']) for r in rows]
@@ -66,7 +89,8 @@ def main():
     axs[0].set(xlabel='Time after stress reversal (ns)',ylabel='Contact nodes');axs[0].legend(fontsize=8)
     axs[1].set(xlabel='Time after stress reversal (ns)',ylabel='Minimum material-side gap (nm)');fig.tight_layout()
     save(fig,'G1_reverse_release',['reverse_M','reverse_T','reverse_MT'])
-    maximum=max(max(v['primary_relative'].values()) for v in refine);event=max(max(v['event_relative'].values()) for v in refine)
+    required=[v for v in refine if v.get('qualification_role','required')=='required']
+    maximum=max(max(v['primary_relative'].values()) for v in required);event=max(max(v['event_relative'].values()) for v in required)
     lines=['# W4-G1 中文综合实施与科学审查报告','',f'日期：2026-10-30；G1 科学裁决：**{gate["status"]}（下述明确限定范围）**。',
         '', '## 1. 核心结论',
         '', '已完成 M-only、T-only、M+T 的真实短时演化、反向释放、无CTB和原生操作消融。M/T共用一个真实ExaDiS弹性网络、同一宏观应力张量及同一个CTB0。不是两个独立通道动画。',
@@ -78,25 +102,27 @@ def main():
         '', '## 3. 正例、反例与拓扑一致性',
         '', '身份/能力拒绝几何回归7项通过，原生准入7项通过：接触/切向运动/释放/反力重构、真实分裂和粗化、地址复用、非法穿透及跨材料碰撞负控均有原始记录。原生重网格确实增加和减少节点，身份在实际输出上恢复。跨材料碰撞实际把76节点变成77节点，非法连接被拒绝。失败构型、合法恢复图和失败命令均保留。',
         '', '每个原生积分、碰撞、TopologySerial及Remesh阶段结束后检查Burgers、来源和半空间合法性；Euler事件限制确保接受积分段不穿透。非法原生提议会结束该例，不会静默跳过操作后继续标PASS。恢复证据是网络图与时间状态复原，不是已获资格的累计塑性账本断点续算。原生tag在单个C++操作内部的完整生命周期未由绑定暴露，未冒称谱系事件精确恢复。',
+        '', '5→2.5 nm的MT接触尾段曾出现6.34%差异，原UNRESOLVED与首份审查保留。若本报告启用1.25 nm扩展，最后空间比较为2.5→1.25 nm；时间独立减半在2.5 nm验证，1.25 nm独立时间细化尚NOT_RUN。不能外推成所有网格/时间步的误差保证。',
         '', '## 4. 数值与因果验证',
         '', f'最后空间及时间细化比较中，主量最大相对差 {100*maximum:.5f}%，首次接触时刻最大相对差 {100*event:.5f}%。原2%/5%门槛保留；细小成对效应另用绝对误差，而非以2%总量容差代替。',
         '', '| 材料侧 | 最细MT−单侧扫掠面积 (nm²) | 相对单侧 (%) | 观察到的空间+时间差 (nm²) | 因果判定 |', '|---|---:|---:|---:|---|']
     for v in causal:
-        host=v['host'];delta=contrasts['mesh2p5_timehalf'][host]
+        host=v['host'];delta=contrasts[finest][host]
         lines.append(f'| {host} | {v["delta_area_nm2"]:.6f} | {100*delta["relative_to_single"]:.6f} | {v["empirical_error_nm2"]:.6f} | {v["status"]} |')
-    lines+=['', '成对效应在最后层级保持符号且超过两倍观察到的细化差。这个差值准则是冻结的确定性分辨标准，不是严谨误差上界或随机种子置信区间。',
+    lines+=['', '成对效应在最后层级保持符号且超过两倍观察到的细化差。扩展审查还将已测原点偏移差加入绝对差和，采用更保守的判别。这个差值准则是冻结的确定性分辨标准，不是严谨误差上界或随机种子置信区间。',
         '', '全部已保存MT构型执行原生共同应力PK差分、跨侧力互反及“仅移除跨侧弹性力”的瞬时反事实检查；网络、位置、迁移率和接触不变。原生力与速度随之改变，支持差异来自跨侧弹性耦合。瞬时检查不冒充独立无耦合长时轨迹。',
         '', '旧002版在末态出现约1.68e-6的跨侧力互反残差，超过冻结1e-8。原生直接段对复算、交换段对次序不能消除；仅把计算原点平移到网络附近后，残差降至约1e-11。新003版仅将输入原生力内核的图坐标和cell origin作统一平移，输出力回给原物理图。物理坐标、初始网络、CTB、载荷、材料与迁移率不变，没有投影或配平力。原生字段等价/原图不变等4项准入通过；完整26例在新版本重新计算，不混用旧轨迹。独立高精度解析参考仍NOT_RUN，因此不把这项修复冒称内核全域精度已证明。',
         '', '## 5. 界面阻碍与反向释放',
         '', '| 消融人口/材料侧 | 有CTB面积 (nm²) | 无CTB面积 (nm²) | 面积降低 (%) | 最终界面尾段 (nm) |', '|---|---:|---:|---:|---:|']
     for d in ctb:lines.append(f'| {d["population"]}/{d["host"]} | {d["wall_area_nm2"]:.4f} | {d["no_ctb_area_nm2"]:.4f} | {100*d["area_reduction"]:.4f} | {d["contact_tail_nm"]:.4f} |')
-    lines+=['', '无CTB为移除约束而保留初始滑移流形的参考，不冒充真实CTB透射。反向加载从同一真实前向末态重启，原生节点、线段、Burgers和滑移面逐数组相同，没有重新生成或插入位错。',
+    lines+=['', '无CTB及反向加载采用2.5 nm匹配参考，均为同网格真实对照；新增1.25 nm为空间细化见证。无CTB为移除约束而保留初始滑移流形的参考，不冒充真实CTB透射。反向加载从同一真实前向末态重启，原生节点、线段、Burgers和滑移面逐数组相同，没有重新生成或插入位错。',
         '', '| 人口 | 各侧首次全部脱离时间 (ns) | 裁决 |','|---|---|---|']
     for d in release:lines.append(f'| {d["population"]} | {d["first_full_release_ns"]} | {d["status"]} |')
     lines+=['', '## 6. G0回归、失败证据与资源',
         '', 'G0生产源码保持不变。重新运行A0（含固定节点与原生FR回归）、接触/三速度准入和四条HI/HII无壁/双壁原生轨迹；最终数组与历史输出比较。G0原冻结观测量/事件/守恒门禁通过，权威80例R5不覆盖。',
         '', '单独新增的“完整力/速度相对差小于1e-10”辅助复现检查FAIL，失败原日志与strict_full_field_replay.json保留，未放宽该项阈值或改成PASS。首个无壁HI末态位置最大差1.96e-8 nm、速度最大差约2.73e-4 m/s，图拓扑相同；四条扫掠面积最大相对差约5.59e-14。没有独立定位原生浮点累计差异的完整来源，严格逐字段复现不获资格。它与按既有准则通过的G0科学回归分别裁决。',
         '', '历史试算、非法阶段FAIL和资源CENSORED均保留。若有预算扩展，必须使用新case ID、从原始初态完整重跑，记录逻辑案例映射；不能把截断轨迹拼接成连续PASS。详见campaign_manifest、case_aliases（如有）、日志收据与原始result.json。',
+        '', '为减少细化中的Python开销，仅将材料归属的整数邻接归约向量化；与610个真实图、133747个节点观测逐项完全一致，7项原生正负控重跑通过。浮点几何谓词、力、迁移率、接触和接受步方程不变；每例源码快照保留不同实现。',
         '', '4000 m/s限速会影响G0真实时序的既有发现没有被G1撤销。G1这里采用数学线性GLIDE无上限基准，不能宣称高速度材料运动律已标定。',
         '', '## 7. 独立裁决与后续方向',
         '', f'- G1限定双侧单滑移/I0机制：{gate["status"]}。共享接触、身份继承、合法释放和阶段拓扑审查具有真实演化证据。',

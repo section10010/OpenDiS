@@ -1,0 +1,22 @@
+{
+  "status": "FROZEN_BEFORE_NATIVE_EXTENSION",
+  "jobs": [
+    {
+      "case_id": "mesh1p25_M",
+      "population": "M"
+    },
+    {
+      "case_id": "mesh1p25_T",
+      "population": "T"
+    },
+    {
+      "case_id": "mesh1p25_MT",
+      "population": "MT"
+    }
+  ],
+  "max_case_wall_s": 1500,
+  "max_total_wall_s": 3000,
+  "reason": "Actual MT T-tail 5->2.5 nm change=0.06336789758 exceeds original 0.02. Temporal refinement passed. Preserve failure; independent 1.25 spatial refinement only.",
+  "unchanged": "Original polygon seed, material, stress, contact, mobility, time step and node displacement limit",
+  "criterion": "Original 2 percent primary / 5 percent event. Last spatial pair is 2.5->1.25; old 5->2.5 remains UNRESOLVED. No further automatic refinement."
+}

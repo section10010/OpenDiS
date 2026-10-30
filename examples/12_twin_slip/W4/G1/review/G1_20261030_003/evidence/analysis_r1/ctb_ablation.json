@@ -1,0 +1,38 @@
+[
+  {
+    "population": "M",
+    "host": "M",
+    "wall_area_nm2": 10150.512981979613,
+    "no_ctb_area_nm2": 11329.799357784916,
+    "area_reduction": 0.10408713681191477,
+    "contact_tail_nm": 61.69141395446793,
+    "status": "PASS"
+  },
+  {
+    "population": "T",
+    "host": "T",
+    "wall_area_nm2": 10150.512993258755,
+    "no_ctb_area_nm2": 11329.799357791728,
+    "area_reduction": 0.1040871358169246,
+    "contact_tail_nm": 61.69141412558197,
+    "status": "PASS"
+  },
+  {
+    "population": "MT",
+    "host": "M",
+    "wall_area_nm2": 10181.785111861835,
+    "no_ctb_area_nm2": 11370.094169193482,
+    "area_reduction": 0.1045118043570204,
+    "contact_tail_nm": 61.68870806726291,
+    "status": "PASS"
+  },
+  {
+    "population": "MT",
+    "host": "T",
+    "wall_area_nm2": 10182.115942419627,
+    "no_ctb_area_nm2": 11370.449451162818,
+    "area_reduction": 0.10451068920777486,
+    "contact_tail_nm": 61.69055191197442,
+    "status": "PASS"
+  }
+]

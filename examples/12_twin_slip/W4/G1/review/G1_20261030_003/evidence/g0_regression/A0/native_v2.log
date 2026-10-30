@@ -1,0 +1,6 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 2 x 1 ]
+A0_NATIVE_PASS 10 checks

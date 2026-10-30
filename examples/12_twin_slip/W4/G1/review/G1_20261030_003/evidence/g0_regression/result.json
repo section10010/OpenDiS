@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "gate_scope": "Original frozen G0 scientific observables/invariants; NOT a bitwise or 1e-10 full-field qualification",
+  "A0": "PASS",
+  "contact_native": "PASS",
+  "diagnostic_native": "PASS",
+  "source_byte_identity": "PASS",
+  "four_native_trajectory_replays": [
+    {
+      "case_id": "G0_loop_HI_none_uncapped_diagnostic",
+      "status": "PASS",
+      "initial_source_code": "BYTE_IDENTICAL",
+      "graph_and_crystal": "EXACT",
+      "swept_area_relative": 5.999999025566283e-15,
+      "line_relative": 1.3711468348136038e-13,
+      "event_relative": 0.0,
+      "steps_old": 1573,
+      "steps_replay": 1573,
+      "plastic_closure": 1.6924107247001025e-21
+    },
+    {
+      "case_id": "G0_loop_HI_both_uncapped_diagnostic",
+      "status": "PASS",
+      "initial_source_code": "BYTE_IDENTICAL",
+      "graph_and_crystal": "EXACT",
+      "swept_area_relative": 0.0,
+      "line_relative": 0.0,
+      "event_relative": 0.0,
+      "steps_old": 1311,
+      "steps_replay": 1311,
+      "plastic_closure": 6.044737997404817e-22
+    },
+    {
+      "case_id": "G0_threader_HII_none_uncapped_diagnostic",
+      "status": "PASS",
+      "initial_source_code": "BYTE_IDENTICAL",
+      "graph_and_crystal": "EXACT",
+      "swept_area_relative": 5.58341943856188e-14,
+      "line_relative": 3.0034540588884397e-14,
+      "event_relative": 0.0,
+      "steps_old": 1757,
+      "steps_replay": 1757,
+      "plastic_closure": 2.645124426633615e-21
+    },
+    {
+      "case_id": "G0_threader_HII_both_uncapped_diagnostic",
+      "status": "PASS",
+      "initial_source_code": "BYTE_IDENTICAL",
+      "graph_and_crystal": "EXACT",
+      "swept_area_relative": 0.0,
+      "line_relative": 0.0,
+      "event_relative": 0.0,
+      "steps_old": 1657,
+      "steps_replay": 1657,
+      "plastic_closure": 7.6716709719357955e-22
+    }
+  ],
+  "frozen_criteria_source": "/home/sakura/opendis/w4_g0_20261030_001/production/frozen_criteria.json",
+  "primary_threshold": 0.02,
+  "event_threshold": 0.05,
+  "auxiliary_strict_full_field_replay": "FAIL",
+  "auxiliary_evidence": "strict_full_field_replay.json",
+  "preserved_failure": "Parent g0_regression.log and its original 1e-10 assertion remain unchanged"
+}

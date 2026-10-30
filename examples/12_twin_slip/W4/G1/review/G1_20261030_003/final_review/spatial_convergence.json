@@ -1,0 +1,99 @@
+[
+  {
+    "case_id": "mesh1p25_M",
+    "population": "M",
+    "run_status": "PASS",
+    "convergence_status": "UNRESOLVED",
+    "time_ns": 0.025000000000000005,
+    "steps": 6954,
+    "wall_s": 979.3899138329998,
+    "primary_relative": {
+      "M_line_nm": 8.810201576677423e-05,
+      "M_tail_nm": 0.03030841618674775,
+      "M_swept_area_nm2": 0.001988487394998001,
+      "M_area_tensor_norm_nm2": 0.0004170448393460301
+    },
+    "event_relative": {
+      "M": 6.629488783447334e-06
+    },
+    "tails_nm": {
+      "M": {
+        "coarse_nm": 61.69141395446793,
+        "fine_nm": 63.61962399618883,
+        "relative": 0.03030841618674775
+      }
+    },
+    "tail_threshold_status": "FAIL",
+    "minimum_gap_nm": -0.0,
+    "raw_velocity_max_m_s": 8620.773742182166,
+    "initial_graph_identity": "EXACT",
+    "actual_array_audit": {
+      "status": "PASS",
+      "native_tail_nm": {
+        "M": 63.61962399618883
+      },
+      "accepted_samples": 6954,
+      "accepted_time_ns": 0.024999999999999994,
+      "max_burgers_residual_b": 0.0,
+      "final_native_plastic_closure": 1.095319571871592e-22,
+      "max_contact_power_normalized": 3.753478075800626e-17,
+      "maximum_raw_velocity_m_s": 8620.773742182166
+    }
+  },
+  {
+    "case_id": "mesh1p25_T",
+    "population": "T",
+    "run_status": "PASS",
+    "convergence_status": "UNRESOLVED",
+    "time_ns": 0.025000000000000005,
+    "steps": 6938,
+    "wall_s": 661.5730639940002,
+    "primary_relative": {
+      "T_line_nm": 8.88889273212977e-05,
+      "T_tail_nm": 0.030308825260606815,
+      "T_swept_area_nm2": 0.0020820082988372104,
+      "T_area_tensor_norm_nm2": 0.00041746739844792985
+    },
+    "event_relative": {
+      "T": 6.802721498967806e-06
+    },
+    "tails_nm": {
+      "T": {
+        "coarse_nm": 61.69141412558197,
+        "fine_nm": 63.61965101122188,
+        "relative": 0.030308825260606815
+      }
+    },
+    "tail_threshold_status": "FAIL",
+    "minimum_gap_nm": 0.0,
+    "raw_velocity_max_m_s": 8623.269961802047,
+    "initial_graph_identity": "EXACT",
+    "actual_array_audit": {
+      "status": "PASS",
+      "native_tail_nm": {
+        "T": 63.61965101122188
+      },
+      "accepted_samples": 6938,
+      "accepted_time_ns": 0.025000000000000015,
+      "max_burgers_residual_b": 0.0,
+      "final_native_plastic_closure": 7.329672243664729e-23,
+      "max_contact_power_normalized": 3.753060288505611e-17,
+      "maximum_raw_velocity_m_s": 8623.269961802047
+    }
+  },
+  {
+    "case_id": "mesh1p25_MT",
+    "population": "MT",
+    "run_status": "NOT_RUN",
+    "convergence_status": "NOT_RUN",
+    "time_ns": null,
+    "steps": null,
+    "wall_s": null,
+    "primary_relative": null,
+    "event_relative": null,
+    "tails_nm": null,
+    "tail_threshold_status": "NOT_RUN",
+    "minimum_gap_nm": null,
+    "raw_velocity_max_m_s": null
+  }
+]

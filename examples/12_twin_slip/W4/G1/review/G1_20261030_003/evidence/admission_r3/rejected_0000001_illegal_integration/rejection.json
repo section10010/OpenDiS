@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "stage": "illegal_integration",
+  "step": 1,
+  "error": "RuntimeError('Illegal shared CTB penetration after illegal_integration')",
+  "rollback_graph": "PASS",
+  "rollback_time": "PASS",
+  "production_action": "STOP; no skipped physical operation",
+  "exact_cumulative_restart": "NOT_QUALIFIED"
+}

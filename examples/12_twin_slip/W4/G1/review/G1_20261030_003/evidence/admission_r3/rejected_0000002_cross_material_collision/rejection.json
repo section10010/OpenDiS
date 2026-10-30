@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "stage": "cross_material_collision",
+  "step": 2,
+  "error": "IdentityError('Cross-source/material junction is illegal in I0')",
+  "rollback_graph": "PASS",
+  "rollback_time": "PASS",
+  "production_action": "STOP; no skipped physical operation",
+  "exact_cumulative_restart": "NOT_QUALIFIED"
+}

@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "snapshot": "initial.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 6.09257369762785e-12,
+      "cross_force_pair_residual": 2.414076634238766e-12,
+      "direct_pair_residual": 2.38030753572258e-12,
+      "subtractive_vs_direct_relative": 7.932312416751112e-09,
+      "velocity_change_m_s": 17.25909431131184,
+      "PK_tensor_relative_error": 1.2314470774925136e-14
+    },
+    {
+      "snapshot": "frame_0000000.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 6.09257369762785e-12,
+      "cross_force_pair_residual": 2.414076634238766e-12,
+      "direct_pair_residual": 2.3803229878925087e-12,
+      "subtractive_vs_direct_relative": 7.932312465202262e-09,
+      "velocity_change_m_s": 17.25909431131184,
+      "PK_tensor_relative_error": 1.2314470774925136e-14
+    },
+    {
+      "snapshot": "frame_0000241.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 2.6261009989702123e-12,
+      "cross_force_pair_residual": 4.840303754104119e-11,
+      "direct_pair_residual": 4.896833699238477e-11,
+      "subtractive_vs_direct_relative": 4.1288376294956466e-05,
+      "velocity_change_m_s": 47.660418445618674,
+      "PK_tensor_relative_error": 8.187341884388086e-14
+    },
+    {
+      "snapshot": "frame_0000469.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 2.6182410712758145e-12,
+      "cross_force_pair_residual": 1.367243800430295e-10,
+      "direct_pair_residual": 1.387761439022603e-10,
+      "subtractive_vs_direct_relative": 5.353453155002123e-06,
+      "velocity_change_m_s": 52.99641845684749,
+      "PK_tensor_relative_error": 8.575255239642599e-14
+    },
+    {
+      "snapshot": "frame_0000694.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 2.824437682697228e-12,
+      "cross_force_pair_residual": 2.3135905700245878e-10,
+      "direct_pair_residual": 2.2831405875089723e-10,
+      "subtractive_vs_direct_relative": 1.847437143378966e-05,
+      "velocity_change_m_s": 56.238753323958754,
+      "PK_tensor_relative_error": 8.299979711966826e-14
+    },
+    {
+      "snapshot": "frame_0000918.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 3.0367576029514466e-12,
+      "cross_force_pair_residual": 1.4357859803011497e-10,
+      "direct_pair_residual": 1.4072241830869266e-10,
+      "subtractive_vs_direct_relative": 5.690906791074543e-05,
+      "velocity_change_m_s": 60.0107197549233,
+      "PK_tensor_relative_error": 8.157783938557201e-14
+    },
+    {
+      "snapshot": "frame_0001142.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 3.31828092071635e-12,
+      "cross_force_pair_residual": 1.2348286037538045e-10,
+      "direct_pair_residual": 1.1987228383514187e-10,
+      "subtractive_vs_direct_relative": 2.2783977508648294e-05,
+      "velocity_change_m_s": 63.16358344748024,
+      "PK_tensor_relative_error": 7.95595265637418e-14
+    },
+    {
+      "snapshot": "frame_0001388.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 3.602406392313558e-12,
+      "cross_force_pair_residual": 3.5206213477611254e-11,
+      "direct_pair_residual": 3.6470918920709463e-11,
+      "subtractive_vs_direct_relative": 2.206153316726943e-05,
+      "velocity_change_m_s": 64.57170619596857,
+      "PK_tensor_relative_error": 7.892670428809769e-14
+    },
+    {
+      "snapshot": "frame_0001620.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 3.8897013586596224e-12,
+      "cross_force_pair_residual": 4.4356271735024545e-11,
+      "direct_pair_residual": 3.896926612682304e-11,
+      "subtractive_vs_direct_relative": 8.48782150585214e-06,
+      "velocity_change_m_s": 66.77203924775401,
+      "PK_tensor_relative_error": 7.561016457248648e-14
+    },
+    {
+      "snapshot": "frame_0001854.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 4.186065856637591e-12,
+      "cross_force_pair_residual": 2.320546848125843e-10,
+      "direct_pair_residual": 2.329359298855579e-10,
+      "subtractive_vs_direct_relative": 1.0052339163855029e-05,
+      "velocity_change_m_s": 69.1136348316111,
+      "PK_tensor_relative_error": 7.301599181422822e-14
+    },
+    {
+      "snapshot": "frame_0002091.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 4.493571042591927e-12,
+      "cross_force_pair_residual": 9.318933550963651e-11,
+      "direct_pair_residual": 9.669647572101709e-11,
+      "subtractive_vs_direct_relative": 7.8314289454937e-06,
+      "velocity_change_m_s": 71.27869069832292,
+      "PK_tensor_relative_error": 6.642715779739912e-14
+    },
+    {
+      "snapshot": "final.npz",
+      "status": "PASS",
+      "cross_force_norm_N": 4.80537391039052e-12,
+      "cross_force_pair_residual": 6.393677816485882e-11,
+      "direct_pair_residual": 6.532891619022834e-11,
+      "subtractive_vs_direct_relative": 1.1001865796079717e-05,
+      "velocity_change_m_s": 73.76143998996639,
+      "PK_tensor_relative_error": 6.496716366486151e-14
+    }
+  ],
+  "frozen_balance_threshold": 1e-08,
+  "scope": "All actual saved MT frames: N2 field subtraction AND direct native segment pairs; zero-stress PK; instantaneous cross-force deletion. No projection to enforce balance, no relaxed criterion, no long-time decoupled trajectory."
+}

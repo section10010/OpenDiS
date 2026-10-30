@@ -1,0 +1,23 @@
+[
+  {
+    "population": "M",
+    "status": "PASS",
+    "comparison": "Exact physical initial graph versus old uncentered model",
+    "old": "/home/sakura/opendis/w4_g1_20261030_002/cases/base_M/initial.npz",
+    "new": "/home/sakura/opendis/w4_g1_20261030_003/cases/base_M/initial.npz"
+  },
+  {
+    "population": "T",
+    "status": "PASS",
+    "comparison": "Exact physical initial graph versus old uncentered model",
+    "old": "/home/sakura/opendis/w4_g1_20261030_002/cases/base_T/initial.npz",
+    "new": "/home/sakura/opendis/w4_g1_20261030_003/cases/base_T/initial.npz"
+  },
+  {
+    "population": "MT",
+    "status": "PASS",
+    "comparison": "Exact physical initial graph versus old uncentered model",
+    "old": "/home/sakura/opendis/w4_g1_20261030_002/cases/base_MT/initial.npz",
+    "new": "/home/sakura/opendis/w4_g1_20261030_003/cases/base_MT/initial.npz"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "status": "CENSORED",
+  "original_manifest": {
+    "status": "FROZEN_BEFORE_NATIVE_EXTENSION",
+    "jobs": [
+      {
+        "case_id": "mesh1p25_M",
+        "population": "M"
+      },
+      {
+        "case_id": "mesh1p25_T",
+        "population": "T"
+      },
+      {
+        "case_id": "mesh1p25_MT",
+        "population": "MT"
+      }
+    ],
+    "max_case_wall_s": 1500,
+    "max_total_wall_s": 3000,
+    "reason": "Actual MT T-tail 5->2.5 nm change=0.06336789758 exceeds original 0.02. Temporal refinement passed. Preserve failure; independent 1.25 spatial refinement only.",
+    "unchanged": "Original polygon seed, material, stress, contact, mobility, time step and node displacement limit",
+    "criterion": "Original 2 percent primary / 5 percent event. Last spatial pair is 2.5->1.25; old 5->2.5 remains UNRESOLVED. No further automatic refinement."
+  },
+  "actual_receipt": {
+    "command": [
+      "/opt/miniforge3/envs/anvil/bin/python",
+      "/home/sakura/opendis/w4_g1_20261030_003/code/extend_spatial.py",
+      "--root",
+      "/home/sakura/opendis/w4_g1_20261030_003",
+      "--g0-root",
+      "/home/sakura/opendis/w4_g0_20261030_001/production",
+      "--repo",
+      "/home/sakura/opendis/src"
+    ],
+    "exit_code": 1,
+    "wall_s": 1641.9757371449996
+  },
+  "unstarted_cases": [
+    "mesh1p25_MT"
+  ],
+  "reason": "Controller requires the full frozen 1500 s allowance before starting each case; it does not start a pending case when the 3000 s envelope has less than that remaining."
+}

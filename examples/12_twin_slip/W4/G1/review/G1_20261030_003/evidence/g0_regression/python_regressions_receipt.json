@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "-m",
+    "unittest",
+    "test_configuration",
+    "test_lineage",
+    "test_diagnostics",
+    "-v"
+  ],
+  "exit_code": 0,
+  "wall_s": 1.6352086039998994
+}

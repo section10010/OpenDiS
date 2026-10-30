@@ -1,0 +1,20 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 2 x 1 ]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_003/cases/origin_shift100_M/initial.data
+STEP M 0 0.0 N 38 CONTACT [0]
+STEP M 120 0.002507 N 132 CONTACT [0]
+STEP M 234 0.005019 N 142 CONTACT [0]
+STEP M 347 0.007541 N 144 CONTACT [0]
+STEP M 459 0.010055 N 152 CONTACT [0]
+STEP M 571 0.012565 N 152 CONTACT [1]
+STEP M 690 0.01508 N 152 CONTACT [10]
+STEP M 804 0.017582 N 152 CONTACT [13]
+STEP M 920 0.020097 N 152 CONTACT [16]
+STEP M 1036 0.0226 N 152 CONTACT [18]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_003/cases/origin_shift100_M/final.data
+G1_CASE PASS M 1150 None

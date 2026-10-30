@@ -1,0 +1,5 @@
+case_id,host,run_status,coarse_2p5_tail_nm,fine_1p25_tail_nm,relative_error,threshold,criterion_status
+mesh1p25_M,M,PASS,61.69141395446793,63.61962399618883,0.03030841618674775,0.02,FAIL
+mesh1p25_T,T,PASS,61.69141412558197,63.61965101122188,0.030308825260606815,0.02,FAIL
+mesh1p25_MT,M,NOT_RUN,,,,0.02,NOT_RUN
+mesh1p25_MT,T,NOT_RUN,,,,0.02,NOT_RUN

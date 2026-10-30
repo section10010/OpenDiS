@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "/home/sakura/opendis/w4_g1_20261030_003/code/run_shared.py",
+    "--g0-root",
+    "/home/sakura/opendis/w4_g0_20261030_001/production",
+    "--repo",
+    "/home/sakura/opendis/src",
+    "--spec",
+    "/home/sakura/opendis/w4_g1_20261030_003/case_specs/origin_shift100_M.json",
+    "--population",
+    "M",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_003/cases/origin_shift100_M"
+  ],
+  "exit_code": 0,
+  "wall_s": 54.26002064400018
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "host": "M",
+      "base_difference_nm2": 31.236032834895013,
+      "shifted_origin_difference_nm2": 31.21677365623691,
+      "relative_difference": 0.0006165692922626251,
+      "status": "PASS"
+    },
+    {
+      "host": "T",
+      "base_difference_nm2": 31.555721831231494,
+      "shifted_origin_difference_nm2": 31.578838379016815,
+      "relative_difference": 0.0007325627950757884,
+      "status": "PASS"
+    }
+  ],
+  "physical_geometry": "UNCHANGED"
+}

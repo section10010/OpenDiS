@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "test": "physical_graph_unchanged",
+      "status": "PASS"
+    },
+    {
+      "test": "independent_native_translated_graph_force",
+      "status": "PASS"
+    },
+    {
+      "test": "formerly_failed_reciprocity",
+      "status": "PASS",
+      "residual": 1.1656119476962599e-11,
+      "unchanged_threshold": 1e-08
+    },
+    {
+      "test": "periodic_FFT_refused",
+      "status": "PASS"
+    }
+  ],
+  "repair": "Uniform translation of force kernel input only; no force balancing projection or changes to source/contact/load/mobility",
+  "historical_geometry": "/home/sakura/opendis/w4_g1_20261030_002/cases/mesh2p5_MT_budget_r2/final.npz"
+}

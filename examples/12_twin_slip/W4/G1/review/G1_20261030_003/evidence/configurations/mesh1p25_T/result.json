@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "error": null,
+  "population": "T",
+  "steps": 6938,
+  "time_ns": 0.025000000000000005,
+  "wall_s": 661.5730639940002,
+  "first_contact_ns": {
+    "T": 0.012543959698731552
+  },
+  "first_full_release_ns": {
+    "T": null
+  },
+  "minimum_gap_nm": 0.0,
+  "max_burgers_residual_b": 0.0,
+  "max_plastic_closure": 1.7073410783430947e-22,
+  "max_normalized_contact_violation": 1.8483729546904965e-16,
+  "max_glide_normal_velocity_m_s": 2.5660357952631497e-12,
+  "max_node_displacement_nm": 0.01562500000062609,
+  "swept_area_nm2": {
+    "M": 0.0,
+    "T": 10171.690537370765
+  },
+  "stage_checks": {
+    "initialization": 1,
+    "integration": 6938,
+    "collision": 6938,
+    "topology": 6938,
+    "remesh": 6938
+  },
+  "diagnostics": {
+    "status": "PASS",
+    "accepted_samples": 6938,
+    "chunks": [
+      "chunk_00000.npz",
+      "chunk_00001.npz",
+      "chunk_00002.npz",
+      "chunk_00003.npz",
+      "chunk_00004.npz",
+      "chunk_00005.npz",
+      "chunk_00006.npz",
+      "chunk_00007.npz",
+      "chunk_00008.npz",
+      "chunk_00009.npz",
+      "chunk_00010.npz",
+      "chunk_00011.npz",
+      "chunk_00012.npz",
+      "chunk_00013.npz",
+      "chunk_00014.npz",
+      "chunk_00015.npz",
+      "chunk_00016.npz",
+      "chunk_00017.npz",
+      "chunk_00018.npz",
+      "chunk_00019.npz",
+      "chunk_00020.npz",
+      "chunk_00021.npz",
+      "chunk_00022.npz",
+      "chunk_00023.npz",
+      "chunk_00024.npz",
+      "chunk_00025.npz",
+      "chunk_00026.npz",
+      "chunk_00027.npz",
+      "chunk_00028.npz",
+      "chunk_00029.npz",
+      "chunk_00030.npz",
+      "chunk_00031.npz",
+      "chunk_00032.npz",
+      "chunk_00033.npz",
+      "chunk_00034.npz",
+      "chunk_00035.npz",
+      "chunk_00036.npz",
+      "chunk_00037.npz",
+      "chunk_00038.npz",
+      "chunk_00039.npz",
+      "chunk_00040.npz",
+      "chunk_00041.npz",
+      "chunk_00042.npz",
+      "chunk_00043.npz",
+      "chunk_00044.npz",
+      "chunk_00045.npz",
+      "chunk_00046.npz",
+      "chunk_00047.npz",
+      "chunk_00048.npz",
+      "chunk_00049.npz",
+      "chunk_00050.npz",
+      "chunk_00051.npz",
+      "chunk_00052.npz",
+      "chunk_00053.npz",
+      "chunk_00054.npz",
+      "chunk_00055.npz",
+      "chunk_00056.npz",
+      "chunk_00057.npz",
+      "chunk_00058.npz",
+      "chunk_00059.npz",
+      "chunk_00060.npz",
+      "chunk_00061.npz",
+      "chunk_00062.npz",
+      "chunk_00063.npz",
+      "chunk_00064.npz",
+      "chunk_00065.npz",
+      "chunk_00066.npz",
+      "chunk_00067.npz",
+      "chunk_00068.npz",
+      "chunk_00069.npz"
+    ],
+    "node_line_time_nm_s": 1.1203796127706625e-08,
+    "capped_node_line_time_nm_s": 0.0,
+    "line_time_cap_fraction": 0.0,
+    "any_node_capped_record_fraction": 0.0,
+    "maximum_raw_velocity_m_s": 8623.269961802047,
+    "maximum_constrained_velocity_m_s": 8623.269961802047,
+    "max_normalized_contact_power": 3.753060288505611e-17,
+    "max_normalized_contact_normal_violation": 0.0,
+    "contact_reaction_work_J": -1.3733614201557827e-36,
+    "left_rule_bulk_dissipation_J": 4.724553653905978e-16,
+    "external_work_from_native_plastic_J": 7.7496285721686535e-16,
+    "stage_area_norm_sum_nm2": {
+      "integration_account": 10151.142084442228,
+      "collision": 0.0,
+      "topology": 0.0,
+      "remesh": 3.338865694102206e-10
+    },
+    "stage_area_tensors_nm2": {
+      "integration_account": [
+        [
+          4144.186402229356,
+          2392.6471348989826,
+          1691.8570140736742
+        ],
+        [
+          -2392.647134899114,
+          -1381.395467409719,
+          -976.7941025057926
+        ],
+        [
+          -6767.428056294925,
+          -3907.1764100230785,
+          -2762.7909348194876
+        ]
+      ],
+      "collision": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "topology": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "remesh": [
+        [
+          1.6370904631912708e-11,
+          1.5916157281026244e-11,
+          4.547473508864641e-12
+        ],
+        [
+          -5.4569682106375694e-12,
+          -3.183231456205249e-12,
+          -6.821210263296962e-13
+        ],
+        [
+          2.7284841053187847e-12,
+          -2.4556356947869062e-11,
+          -8.185452315956354e-12
+        ]
+      ]
+    },
+    "elastic_potential_energy_status": "NOT_RUN: current Python native force binding exposes forces, not elastic energy; work is not relabelled as an independent energy",
+    "convention": "Three exact native left-state velocities, with actual accepted dt and half-incident-line weights; not frame-count or interpolated estimates"
+  },
+  "contact_enabled": true,
+  "qualification": "Single affine-slip source per side, ideal I0; unsupported junctions fail closed. No VCoNi calibration or CTB transmission."
+}

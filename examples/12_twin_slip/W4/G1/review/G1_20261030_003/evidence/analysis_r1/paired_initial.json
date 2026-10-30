@@ -1,0 +1,62 @@
+[
+  {
+    "level": "base",
+    "population": "M",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "base",
+    "population": "T",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "timehalf",
+    "population": "M",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "timehalf",
+    "population": "T",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "timequarter",
+    "population": "M",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "timequarter",
+    "population": "T",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "mesh5",
+    "population": "M",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "mesh5",
+    "population": "T",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "mesh2p5",
+    "population": "M",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "mesh2p5",
+    "population": "T",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "mesh2p5_timehalf",
+    "population": "M",
+    "initial_subnetwork": "EXACT"
+  },
+  {
+    "level": "mesh2p5_timehalf",
+    "population": "T",
+    "initial_subnetwork": "EXACT"
+  }
+]

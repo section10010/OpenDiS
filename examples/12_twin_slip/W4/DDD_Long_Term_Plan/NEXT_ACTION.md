@@ -1,13 +1,17 @@
 # 下一动作
 
-2026-10-30 执行中恢复入口：优先核对 `/home/sakura/opendis/w4_g1_20261030_003/campaign.log` 和 `origin_sensitivity.log`。003为仅平移原生力计算原点的修复版；002旧版力互反FAIL与CENSORED必须保留，不能混入最终资格。新矩阵后执行 force_audit.py、analyze_shared.py、report_shared.py。G0新A0及四条原门禁复核已在002/g0_regression完成PASS；额外10^-10完整字段检查FAIL独立保留。整体G1尚未裁决。
+本轮已完成最终审查、报告与归档收尾；没有后台原生计算。当前G1整体UNRESOLVED，G2准入BLOCKED。不从初始力场检查或26例主矩阵重新开始。
 
-1. 从已通过的G1初始力场入口继续：`W4/G1/code/shared_force_probe.py`。不得绕过steps>0的显式保护。
-2. 实现单共享CTB的每段host/来源和可释放单侧接触；M/T同一宏观载荷、同一原生弹性网络。
-3. 先验证新节点材料侧继承、tag重用反例、非法跨材料碰撞/拓扑的拒绝及账本一致性，再做双侧真实短演化。
-4. M-only/T-only/MT消融必须比较相同子网络，不能把两个独立通道动画拼接当共享耦合。针对0.04%量级初始跨侧力明确更严格的误差/因果标准。
-5. G1通过后才开发G2周期层片与完整事务回滚；不得直接启动W6集体矩阵。
+1. 先读 `G1/review/G1_20261030_003/final_review/W4_G1_FINAL_REPORT_ZH.html`、`gate_review.json`及`spatial_convergence.json`。M/T尾段约3.03%仍超原2%；MT细化NOT_RUN，控制器CENSORED证据保留。
+2. 下一科研修复应在固定1.25 nm空间网格下设计独立时间步/节点位移敏感性，材料、宏观σ、初始图及I0规则保持不变；先冻结预算和原2%门槛，不以继续加密直到碰巧通过为目标。
+3. 增加阶段前后接触端点/尾段审计，区分真实运动与Remesh局部效应；保留原尾段验收，辅助带宽统计不得替换失败观测量。
+4. 现有数据先使用；不重复已完成的原生矩阵，不拼接CENSORED轨迹，不将缺测填零。若以后开展新计算，须使用新的case ID及明确输入/资源约束。
+5. G1严格资格通过前不启动G2周期层片或W6四厚度集体矩阵。
 
-G0权威运行根：`/home/sakura/opendis/w4_g0_20261030_001/production`；裁决 analysis_r5。
-G1运行根：`/home/sakura/opendis/w4_g1_20261030_001`；初始准入 initial_force_probe_r3。
-初始准入复跑须新out：`/opt/miniforge3/envs/anvil/bin/python code/shared_force_probe.py --g0-root <G0根> --repo /home/sakura/opendis/src --out <新目录>`。
+实际VM：`/home/sakura/opendis/w4_g1_20261030_003`。现有结果再审查入口（只读已有输出，不运行ExaDiS）：
+
+```bash
+/opt/miniforge3/envs/anvil/bin/python code/final_review_shared.py --root <003根> --out <新的审查目录>
+```
+
+002完整失败数据、003修复版完整数据、W3历史和G0 R5均保留；源码在独立 `codex/w4-g1-shared-ctb`，不合并main。

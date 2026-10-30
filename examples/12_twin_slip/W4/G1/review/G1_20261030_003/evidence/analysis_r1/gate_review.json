@@ -1,0 +1,17 @@
+{
+  "gate": "W4-G1",
+  "status": "UNRESOLVED",
+  "numerical_cases": 26,
+  "initial_subnetwork_pairing": "PASS",
+  "source_inheritance_contact_release_topology": "PASS",
+  "native_force_causality": "PASS",
+  "G0_regression": "PASS",
+  "numerical_origin_sensitivity": "PASS",
+  "centered_force_admission": "PASS",
+  "scope": "Nonperiodic direct elastic force, one shared CTB, two affine single-slip ordinary loops, I0 fail-closed reactions. Not general multisystem/junction evolution.",
+  "unsupported_cross_material_reactions": "REJECT_AND_STOP; native negative collision preserved",
+  "exact_cumulative_restart": "NOT_QUALIFIED",
+  "periodic_layers": "NOT_RUN",
+  "VCoNi": "NOT_QUALIFIED",
+  "strengthening_or_thickness_trend": "NOT_QUALIFIED"
+}

@@ -4,3 +4,5 @@
 *.csv text eol=lf
 *.log text eol=lf
 *.patch -text whitespace=-blank-at-eol
+G1/review/**/reference_figures/*.svg binary
+G1/review/**/evidence/configurations/**/*.data -text whitespace=-blank-at-eol

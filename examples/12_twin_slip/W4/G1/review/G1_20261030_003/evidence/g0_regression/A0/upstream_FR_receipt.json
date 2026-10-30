@@ -1,0 +1,18 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "/home/sakura/opendis/build",
+    "-L",
+    "full_run",
+    "-R",
+    "02_frank_read_src.*pydis_exadis_elast.*coarsen_mode",
+    "--output-on-failure"
+  ],
+  "cwd": "/home/sakura/opendis/build",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_seconds": 33.20113075400013,
+  "log": "/home/sakura/opendis/w4_g1_20261030_002/g0_regression/A0/upstream_FR.log",
+  "omp_num_threads": "2"
+}

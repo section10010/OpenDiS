@@ -1,0 +1,151 @@
+{
+  "status": "PASS",
+  "error": null,
+  "population": "M",
+  "steps": 2297,
+  "time_ns": 0.025000000000000005,
+  "wall_s": 122.7770379110002,
+  "first_contact_ns": {
+    "M": 0.012544045031741374
+  },
+  "first_full_release_ns": {
+    "M": null
+  },
+  "minimum_gap_nm": -0.0,
+  "max_burgers_residual_b": 0.0,
+  "max_plastic_closure": 1.1339315752992088e-22,
+  "max_normalized_contact_violation": 1.9263435956707599e-16,
+  "max_glide_normal_velocity_m_s": 1.9129088895000847e-12,
+  "max_node_displacement_nm": 0.015625000000339666,
+  "swept_area_nm2": {
+    "M": 10150.512981979613,
+    "T": 0.0
+  },
+  "stage_checks": {
+    "initialization": 1,
+    "integration": 2297,
+    "collision": 2297,
+    "topology": 2297,
+    "remesh": 2297
+  },
+  "diagnostics": {
+    "status": "PASS",
+    "accepted_samples": 2297,
+    "chunks": [
+      "chunk_00000.npz",
+      "chunk_00001.npz",
+      "chunk_00002.npz",
+      "chunk_00003.npz",
+      "chunk_00004.npz",
+      "chunk_00005.npz",
+      "chunk_00006.npz",
+      "chunk_00007.npz",
+      "chunk_00008.npz",
+      "chunk_00009.npz",
+      "chunk_00010.npz",
+      "chunk_00011.npz",
+      "chunk_00012.npz",
+      "chunk_00013.npz",
+      "chunk_00014.npz",
+      "chunk_00015.npz",
+      "chunk_00016.npz",
+      "chunk_00017.npz",
+      "chunk_00018.npz",
+      "chunk_00019.npz",
+      "chunk_00020.npz",
+      "chunk_00021.npz",
+      "chunk_00022.npz"
+    ],
+    "node_line_time_nm_s": 1.120287081916459e-08,
+    "capped_node_line_time_nm_s": 0.0,
+    "line_time_cap_fraction": 0.0,
+    "any_node_capped_record_fraction": 0.0,
+    "maximum_raw_velocity_m_s": 3302.354282672521,
+    "maximum_constrained_velocity_m_s": 3302.354282672521,
+    "max_normalized_contact_power": 3.7493259458291464e-17,
+    "max_normalized_contact_normal_violation": 0.0,
+    "contact_reaction_work_J": -1.5999323660978221e-35,
+    "left_rule_bulk_dissipation_J": 3.339212306818566e-16,
+    "external_work_from_native_plastic_J": 7.746393346288428e-16,
+    "stage_area_norm_sum_nm2": {
+      "integration_account": 10146.904302298213,
+      "collision": 0.0,
+      "topology": 0.0,
+      "remesh": 1.5644332303115994e-10
+    },
+    "stage_area_tensors_nm2": {
+      "integration_account": [
+        [
+          1.8534296749392805e-13,
+          -1.0700781217502587e-13,
+          7.56659496288946e-14
+        ],
+        [
+          -4783.296560137318,
+          2761.637556609167,
+          -1952.7726434577207
+        ],
+        [
+          -6764.602868198792,
+          3905.5452869155615,
+          -2761.6375566090665
+        ]
+      ],
+      "collision": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "topology": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "remesh": [
+        [
+          -2.0194839173657902e-28,
+          1.262177448353619e-28,
+          -1.262177448353619e-29
+        ],
+        [
+          1.000444171950221e-11,
+          -1.3642420526593924e-12,
+          4.547473508864641e-13
+        ],
+        [
+          2.000888343900442e-11,
+          1.8189894035458565e-12,
+          -9.094947017729282e-13
+        ]
+      ]
+    },
+    "elastic_potential_energy_status": "NOT_RUN: current Python native force binding exposes forces, not elastic energy; work is not relabelled as an independent energy",
+    "convention": "Three exact native left-state velocities, with actual accepted dt and half-incident-line weights; not frame-count or interpolated estimates"
+  },
+  "contact_enabled": true,
+  "qualification": "Single affine-slip source per side, ideal I0; unsupported junctions fail closed. No VCoNi calibration or CTB transmission."
+}

@@ -35,12 +35,14 @@ class MaterialIdentity:
             if np.any(good&(edge>=0)):raise IdentityError('Ambiguous source fingerprint; require native provenance before accepting')
             edge[good]=k
         if np.any(edge<0):raise IdentityError('Unrecognised segment reaction/source plane; no silent material fallback')
-        node=np.full(len(x),-1,int)
-        for e,(i,j) in enumerate(ij):
-            for v in (i,j):
-                if node[v]>=0 and node[v]!=edge[e]:raise IdentityError('Cross-source/material junction is illegal in I0')
-                node[v]=edge[e]
-        if np.any(node<0):raise IdentityError('Orphan node has no material provenance')
+        # Exact integer incidence reduction; no force, geometry or floating
+        # criterion changes. Avoid repeated Python edge loops at fine meshes.
+        minimum=np.full(len(x),len(self.sources),int);maximum=np.full(len(x),-1,int)
+        for end in (0,1):
+            np.minimum.at(minimum,ij[:,end],edge);np.maximum.at(maximum,ij[:,end],edge)
+        if np.any(maximum<0):raise IdentityError('Orphan node has no material provenance')
+        if np.any(minimum!=maximum):raise IdentityError('Cross-source/material junction is illegal in I0')
+        node=maximum
         hosts=np.array([s['region'] for s in self.sources],dtype='U1')
         stable=np.array([s['initial_component_id'] for s in self.sources],int)
         return dict(node_source_id=stable[node],segment_source_id=stable[edge],node_host=hosts[node],segment_host=hosts[edge])

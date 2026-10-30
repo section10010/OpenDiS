@@ -1,0 +1,20 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 2 x 1 ]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_003/cases/timehalf_T/initial.data
+STEP T 0 0.0 N 38 CONTACT [0]
+STEP T 60 0.002528 N 68 CONTACT [0]
+STEP T 117 0.005046 N 72 CONTACT [0]
+STEP T 173 0.007552 N 72 CONTACT [0]
+STEP T 229 0.010072 N 74 CONTACT [0]
+STEP T 285 0.012582 N 76 CONTACT [1]
+STEP T 343 0.01512 N 76 CONTACT [5]
+STEP T 401 0.017627 N 76 CONTACT [7]
+STEP T 459 0.02015 N 76 CONTACT [8]
+STEP T 517 0.022667 N 76 CONTACT [9]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_003/cases/timehalf_T/final.data
+G1_CASE PASS T 572 None

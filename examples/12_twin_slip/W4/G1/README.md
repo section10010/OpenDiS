@@ -1,34 +1,23 @@
-# G1 共享 CTB 演化入口
+# G1共享CTB：最终审查
 
-当前生产入口 `code/run_shared.py`，规格 `configs/shared_evolution_centered_v2.json`。当前真实运行根 `/home/sakura/opendis/w4_g1_20261030_003`；002为保留的旧版诊断。
+2026-10-30裁决：**G1整体UNRESOLVED，尾段原2%验收FAIL，G2准入BLOCKED**。
 
-002变形末态的原生跨侧力互反残差约1.68e-6，超过原10^-8门槛。003仅将力内核输入原点统一平移到网络附近，实际位错/CTB坐标、材料、载荷、迁移率不变，不投影或配平力；旧失败构型修复后约1.2e-11，4项原生准入通过。完整矩阵和独立原点反控仍在执行，当前整体UNRESOLVED。
+已完成真实M-only/T-only/M+T短时演化、反向释放、无CTB及原生操作消融。003主矩阵26例和3例原点反控完成。1.25 nm M/T分别6954/6938步到0.025 ns；尾段差3.0308416%/3.0308825%，未达2%。1.25 nm MT因原预算预留策略未启动（NOT_RUN），控制器CENSORED。没有重复计算或放宽标准。
 
-材料来源由Burgers、滑移法向及源平面唯一恢复，tag不充当材料身份。每个原生阶段检查并拒绝非法提议。共享CTB在单个弹性网络中对两侧施加相反单侧法向约束，保留切向运动和反向释放。当前仅支持可唯一辨识的仿射单滑移普通环，未知结点反应显式拒绝，不冒充通用多滑移反应。
+最终报告与机器裁决见 `review/G1_20261030_003/final_review/`，真实参考图在相邻 `reference_figures/`。完整原始数据在 `runs/G1_20261030_002`、`runs/G1_20261030_003` 和VM，具体文件/尺寸见规划入口EVIDENCE_INDEX。
 
-6项身份几何和7项原生准入PASS。26例动态矩阵与G0复核尚在执行，当前总体UNRESOLVED；首个细网格MT资源CENSORED保留，`resource_extension_r2.json`冻结唯一有界扩展，所有重跑使用新ID，不拼接轨迹。
+生产入口 `code/run_shared.py`；数值原点修复规格 `configs/shared_evolution_centered_v2.json`。当前支持非周期直接力、一个共享平面CTB和每侧唯一可辨识的仿射单滑移普通闭环；不是FR源或通用多滑移反应模型。
 
-重放先执行 `qualify_shared.py --g0-root ... --repo ... --spec ... --out admission_r1`，再用 `campaign_shared.py` 在新根冻结并执行矩阵。原生输出目录不可覆盖；全局G0准入与源码字节绑定必须通过。审查工具为 `force_audit.py`、`regress_g0.py`、`analyze_shared.py` 和 `report_shared.py`。
+材料来源由真实Burgers、滑移法向与源平面恢复，tag只作地址。一个原生网络共同求解两侧弹性力，按所属侧投影单侧接触，保留切向运动和反向释放；非法穿透/跨源反应拒绝并保存失败与合法恢复图。未知物理显式拒绝。
 
-## 历史初始力场入口
+002曾出现原生跨侧力互反约1.68e-6 FAIL。003只统一平移原生力内核计算坐标，实际网络、CTB、材料、σ和迁移率不变，不配平力。4项原生准入与2.5 nm全部保存MT构型力审查通过原10^-8；旧FAIL保留。
 
-已完成真实原生初始共同力场准入 `initial_force_probe_r3`，不是完整G1演化。唯一规格在 configs/initial_shared_probe.json，包含共同应力、迁移率、两侧位置与共享界面。
+- 几何/能力拒绝回归7项、接触/分裂/粗化/反应拒绝原生回归7项通过；整数归约与610个真实图逐项等价。
+- G0原生产代码不变，新A0与4条轨迹按既有科学门禁PASS；额外10^-10完整字段复现FAIL保留。
+- 1.25 nm独立时间细化、1.25 nm MT真实轨迹力审查NOT_RUN；VCoNi与强化/HDI定量预测NOT_QUALIFIED。
 
-- 两个FCC取向满足共同[111]的60°关系；同一CTB几何平面 z=2000 nm。
-- M-only/T-only/MT使用同一宏观应力张量，同材料参数，单个MT网络在同一ExaDiS全对力求解器中计算。
-- 两个单侧子网络与MT对应节点、Burgers和滑移面一致；实际RSS逐段读回，统一σ的原生PK差分与解析单位契约相符。
-- 来自另一侧的初始力非零：M/T约5.8724e-12/6.0024e-12 N范数，相对单侧总力0.04457%/0.04556%。跨侧互反残差3.17e-12，PK张量相对误差5.18e-15。
+仅再审查已有输出可运行 `final_review_shared.py --root <VM003根> --out <新目录>`；不会启动ExaDiS。`analyze_shared.py --spatial-extension`要求三组完整数据，当前不能用缺测假装通过。
 
-这证明原生网络确实耦合，**没有证明共享CTB接触演化、透射或材料强化**。两侧距CTB尚有间隙，此处只计算初始力。M-only/T-only为消融，不是同密度材料参考。
+最终审查器需要VM原始根或完整TAR展开目录中的密集接受步字段。精简native视图省略这些块，不能作为完整再审查输入；可直接阅读其中已经生成的报告与裁决。
 
-尚待实现：host/来源继承、tag重用处理、共享接触可释放自由度、跨域碰撞/拓扑一致性、反力事件账本及真实短演化。`--steps` 大于0明确抛出NotImplementedError，不退回两个W3通道。
-
-G1整体状态 `NOT_RUN`。下一动作见规划入口 NEXT_ACTION.md。
-
-```bash
-/opt/miniforge3/envs/anvil/bin/python code/shared_force_probe.py \
- --g0-root /home/sakura/opendis/w4_g0_20261030_001/production \
- --repo /home/sakura/opendis/src --spec configs/initial_shared_probe.json --out 新的原生输出目录
-```
-
-初次probe元数据曾列出完整设计人口，R2改为仅列活动人口并加入逐段RSS核对；R3移到唯一规格并核对每侧原生滑移面/方向在对应局部晶体中的FCC资格。R2→R3三组实际网络与力已回归一致；旧构型/日志保留，不覆盖。
+旧 `shared_force_probe.py` 保留为初始共同力场历史入口，它仍拒绝steps>0；真实演化使用run_shared.py。W1–W3、G0 R5、002/003失败轨迹和所有前版审查不覆盖。整个W4–W9未完成。

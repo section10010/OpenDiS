@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "/home/sakura/opendis/w4_g1_20261030_003/code",
+    "-p",
+    "test_material_identity.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "wall_s": 0.16904368499945122
+}

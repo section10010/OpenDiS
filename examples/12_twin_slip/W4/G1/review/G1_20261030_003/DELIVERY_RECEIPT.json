@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scientific_gate": "UNRESOLVED",
+  "tail_2percent": "FAIL",
+  "fine_MT": "NOT_RUN",
+  "resource_controller": "CENSORED",
+  "source_branch": "codex/w4-g1-shared-ctb",
+  "source_implementation_revision": "4048896",
+  "evidence_files": 165,
+  "evidence_bytes": 1556068,
+  "raw_archives": {
+    "002": 1713602560,
+    "003": 2603397120
+  },
+  "dynamics_repeated_in_closeout": false,
+  "main_merged": false,
+  "sha256_performed": false,
+  "w3_19_file_baseline": "BYTE_IDENTICAL",
+  "native_w1_patch": "14 additions / 3 deletions unchanged",
+  "active_native_workers_at_closeout": 0
+}

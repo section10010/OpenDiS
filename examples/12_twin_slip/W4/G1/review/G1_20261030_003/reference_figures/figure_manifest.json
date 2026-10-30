@@ -1,0 +1,43 @@
+[
+  {
+    "figure": "G1_native_networks",
+    "source_cases": [
+      "mesh2p5_timehalf_M",
+      "mesh2p5_timehalf_T",
+      "mesh2p5_timehalf_MT"
+    ],
+    "selection": "Predefined endpoints or all accepted history points; no interpolated DDD states",
+    "analysis": "/home/sakura/opendis/w4_g1_20261030_003/analysis_r1"
+  },
+  {
+    "figure": "G1_actual_glide_planes",
+    "source_cases": [
+      "mesh2p5_timehalf_M",
+      "mesh2p5_timehalf_T",
+      "mesh2p5_timehalf_MT"
+    ],
+    "selection": "Predefined endpoints or all accepted history points; no interpolated DDD states",
+    "analysis": "/home/sakura/opendis/w4_g1_20261030_003/analysis_r1"
+  },
+  {
+    "figure": "G1_propagation_and_paired_difference",
+    "source_cases": [
+      "mesh2p5_timehalf_M",
+      "mesh2p5_timehalf_T",
+      "mesh2p5_timehalf_MT",
+      "all frozen refinement levels"
+    ],
+    "selection": "Predefined endpoints or all accepted history points; no interpolated DDD states",
+    "analysis": "/home/sakura/opendis/w4_g1_20261030_003/analysis_r1"
+  },
+  {
+    "figure": "G1_reverse_release",
+    "source_cases": [
+      "reverse_M",
+      "reverse_T",
+      "reverse_MT"
+    ],
+    "selection": "Predefined endpoints or all accepted history points; no interpolated DDD states",
+    "analysis": "/home/sakura/opendis/w4_g1_20261030_003/analysis_r1"
+  }
+]

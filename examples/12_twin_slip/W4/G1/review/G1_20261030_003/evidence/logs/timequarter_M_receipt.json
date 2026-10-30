@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "-u",
+    "/home/sakura/opendis/w4_g1_20261030_003/code/run_shared.py",
+    "--g0-root",
+    "/home/sakura/opendis/w4_g0_20261030_001/production",
+    "--repo",
+    "/home/sakura/opendis/src",
+    "--spec",
+    "/home/sakura/opendis/w4_g1_20261030_003/case_specs/timequarter_M.json",
+    "--population",
+    "M",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_003/cases/timequarter_M"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 16.393659895999917
+}

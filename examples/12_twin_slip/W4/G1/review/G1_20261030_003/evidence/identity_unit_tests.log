@@ -1,0 +1,12 @@
+test_ambiguous_provenance_rejected (test_material_identity.Tests.test_ambiguous_provenance_rejected) ... ok
+test_origin_is_not_inferred_from_current_z (test_material_identity.Tests.test_origin_is_not_inferred_from_current_z) ... ok
+test_original_source_ids (test_material_identity.Tests.test_original_source_ids) ... ok
+test_tag_reuse_does_not_control_host (test_material_identity.Tests.test_tag_reuse_does_not_control_host) ... ok
+test_unimplemented_physics_refused (test_material_identity.Tests.test_unimplemented_physics_refused) ... ok
+test_unrecognised_burgers_rejected (test_material_identity.Tests.test_unrecognised_burgers_rejected) ... ok
+test_wrong_source_plane_rejected (test_material_identity.Tests.test_wrong_source_plane_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.020s
+
+OK

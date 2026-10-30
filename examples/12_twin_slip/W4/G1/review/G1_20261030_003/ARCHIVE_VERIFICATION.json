@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "full_tar_bytes": 2603397120,
+  "full_regular_files": 2460,
+  "view_zip_bytes": 20115719,
+  "view_regular_files": 1875,
+  "checks": [
+    "ZIP CRC",
+    "inventory sizes",
+    "TAR member sizes",
+    "exact final verdict binding",
+    "dense M/T accepted chunks present",
+    "unrun MT output absent"
+  ],
+  "sha256_performed": false
+}

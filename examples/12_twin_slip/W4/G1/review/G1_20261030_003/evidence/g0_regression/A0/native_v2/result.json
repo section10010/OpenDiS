@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "gate": "A0_native_response",
+  "checks": [
+    {
+      "test": "native_drag_parameter_response",
+      "velocity_norm_ratio": 2.0,
+      "status": "PASS"
+    },
+    {
+      "test": "native_individual_Medge_response",
+      "velocity_norm_ratio": 1.4975062253478573,
+      "status": "PASS"
+    },
+    {
+      "test": "native_individual_Mscrew_response",
+      "velocity_norm_ratio": 1.5026382364133155,
+      "status": "PASS"
+    },
+    {
+      "test": "native_geometry_readback",
+      "changed": {
+        "source_gauge_nm": 360.0
+      },
+      "actual_nodes": 45,
+      "status": "PASS"
+    },
+    {
+      "test": "native_geometry_readback",
+      "changed": {
+        "backbone_offset_nm": 160.0
+      },
+      "actual_nodes": 41,
+      "status": "PASS"
+    },
+    {
+      "test": "native_geometry_readback",
+      "changed": {
+        "source_count": 2
+      },
+      "actual_nodes": 68,
+      "status": "PASS"
+    },
+    {
+      "test": "native_euler_actual_displacement_response",
+      "max_motion_nm": 0.02022899709611414,
+      "status": "PASS"
+    },
+    {
+      "test": "native_PK_stress_tensor_response",
+      "status": "PASS"
+    },
+    {
+      "test": "native_direct_one_node_vs_global_force",
+      "max_relative_error": 1.124101605399525e-16,
+      "status": "PASS"
+    },
+    {
+      "test": "W1_native_pin_contract",
+      "cases": 3,
+      "status": "PASS"
+    }
+  ],
+  "scope": "Real native force, mobility and one-step numerical checks; not source/CTB qualification"
+}

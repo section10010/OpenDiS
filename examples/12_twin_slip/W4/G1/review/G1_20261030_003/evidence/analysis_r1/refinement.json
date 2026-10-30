@@ -1,0 +1,143 @@
+[
+  {
+    "label": "temporal_at_10",
+    "population": "M",
+    "primary_relative": {
+      "M_line_nm": 4.0648385289722206e-05,
+      "M_tail_nm": 9.151841527882827e-05,
+      "M_swept_area_nm2": 0.00020438416279507977,
+      "M_area_tensor_norm_nm2": 0.00020438416277673849
+    },
+    "event_relative": {
+      "M": 7.103426650941284e-05
+    },
+    "status": "PASS"
+  },
+  {
+    "label": "temporal_at_10",
+    "population": "T",
+    "primary_relative": {
+      "T_line_nm": 4.064868602234902e-05,
+      "T_tail_nm": 9.151863303627471e-05,
+      "T_swept_area_nm2": 0.0002043854695225815,
+      "T_area_tensor_norm_nm2": 0.00020438546948931512
+    },
+    "event_relative": {
+      "T": 7.103426493904466e-05
+    },
+    "status": "PASS"
+  },
+  {
+    "label": "temporal_at_10",
+    "population": "MT",
+    "primary_relative": {
+      "M_line_nm": 3.851420057562941e-05,
+      "M_tail_nm": 0.00011528590651823037,
+      "M_swept_area_nm2": 0.00018997487321028772,
+      "M_area_tensor_norm_nm2": 0.0001899748731945126,
+      "T_line_nm": 3.8642277447693665e-05,
+      "T_tail_nm": 0.00010333404126848228,
+      "T_swept_area_nm2": 0.00018795805410581036,
+      "T_area_tensor_norm_nm2": 0.00019080818579137157
+    },
+    "event_relative": {
+      "M": 0.00010357844879715064,
+      "T": 0.0001043620444751684
+    },
+    "status": "PASS"
+  },
+  {
+    "label": "spatial_at_fine_time",
+    "population": "M",
+    "primary_relative": {
+      "M_line_nm": 0.00012378546546525503,
+      "M_tail_nm": 0.06334773363377508,
+      "M_swept_area_nm2": 0.0011316070855034383,
+      "M_area_tensor_norm_nm2": 0.0007344032018640245
+    },
+    "event_relative": {
+      "M": 9.923810736522255e-05
+    },
+    "status": "UNRESOLVED"
+  },
+  {
+    "label": "spatial_at_fine_time",
+    "population": "T",
+    "primary_relative": {
+      "T_line_nm": 0.00012394615653380956,
+      "T_tail_nm": 0.06334875470782222,
+      "T_swept_area_nm2": 0.0011320675079297693,
+      "T_area_tensor_norm_nm2": 0.0007348668454323115
+    },
+    "event_relative": {
+      "T": 9.923337235875795e-05
+    },
+    "status": "UNRESOLVED"
+  },
+  {
+    "label": "spatial_at_fine_time",
+    "population": "MT",
+    "primary_relative": {
+      "M_line_nm": 0.00013324179791920587,
+      "M_tail_nm": 0.06336765047941915,
+      "M_swept_area_nm2": 0.0010947712266864197,
+      "M_area_tensor_norm_nm2": 0.0007500416279170778,
+      "T_line_nm": 0.00013472368935790152,
+      "T_tail_nm": 0.06336789758287995,
+      "T_swept_area_nm2": 0.0010901924260227605,
+      "T_area_tensor_norm_nm2": 0.0007608097515777592
+    },
+    "event_relative": {
+      "M": 0.00010058764382054514,
+      "T": 9.51360601813029e-05
+    },
+    "status": "UNRESOLVED"
+  },
+  {
+    "label": "temporal_at_2p5",
+    "population": "M",
+    "primary_relative": {
+      "M_line_nm": 1.8171553381341608e-06,
+      "M_tail_nm": 1.1988343065683406e-05,
+      "M_swept_area_nm2": 3.278984012919471e-05,
+      "M_area_tensor_norm_nm2": 9.205296068337741e-06
+    },
+    "event_relative": {
+      "M": 1.4458108971024881e-05
+    },
+    "status": "PASS"
+  },
+  {
+    "label": "temporal_at_2p5",
+    "population": "T",
+    "primary_relative": {
+      "T_line_nm": 1.6566098153262784e-06,
+      "T_tail_nm": 1.1028375226228872e-05,
+      "T_swept_area_nm2": 3.32499103001021e-05,
+      "T_area_tensor_norm_nm2": 8.742204220427878e-06
+    },
+    "event_relative": {
+      "T": 1.4453365461876114e-05
+    },
+    "status": "PASS"
+  },
+  {
+    "label": "temporal_at_2p5",
+    "population": "MT",
+    "primary_relative": {
+      "M_line_nm": 2.2401835264415743e-06,
+      "M_tail_nm": 1.548190692447229e-05,
+      "M_swept_area_nm2": 4.25804358346352e-06,
+      "M_area_tensor_norm_nm2": 2.869093182140316e-06,
+      "T_line_nm": 3.896267401308123e-06,
+      "T_tail_nm": 1.5382475810962255e-05,
+      "T_swept_area_nm2": 9.901275583760263e-06,
+      "T_area_tensor_norm_nm2": 1.2486085409721456e-05
+    },
+    "event_relative": {
+      "M": 1.3347110839015286e-05,
+      "T": 1.2787158700455668e-05
+    },
+    "status": "PASS"
+  }
+]

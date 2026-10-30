@@ -1,0 +1,27 @@
+[
+  {
+    "population": "M",
+    "first_full_release_ns": {
+      "M": 3.2465006096590015e-06
+    },
+    "status": "PASS",
+    "restart_actual_forward_final": "EXACT"
+  },
+  {
+    "population": "T",
+    "first_full_release_ns": {
+      "T": 3.2465010608208725e-06
+    },
+    "status": "PASS",
+    "restart_actual_forward_final": "EXACT"
+  },
+  {
+    "population": "MT",
+    "first_full_release_ns": {
+      "M": 3.246445758653988e-06,
+      "T": 3.246445758653988e-06
+    },
+    "status": "PASS",
+    "restart_actual_forward_final": "EXACT"
+  }
+]

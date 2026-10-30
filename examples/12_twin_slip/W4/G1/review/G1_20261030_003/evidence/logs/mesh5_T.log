@@ -1,0 +1,20 @@
+Host Parallel Execution Space:
+  KOKKOS_ENABLE_OPENMP: yes
+
+OpenMP Runtime Configuration:
+Kokkos::OpenMP thread_pool_topology[ 1 x 2 x 1 ]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_003/cases/mesh5_T/initial.data
+STEP T 0 0.0 N 38 CONTACT [0]
+STEP T 120 0.002507 N 132 CONTACT [0]
+STEP T 234 0.005019 N 142 CONTACT [0]
+STEP T 347 0.007541 N 144 CONTACT [0]
+STEP T 459 0.010055 N 152 CONTACT [0]
+STEP T 571 0.012565 N 152 CONTACT [1]
+STEP T 690 0.01508 N 152 CONTACT [10]
+STEP T 804 0.017582 N 152 CONTACT [13]
+STEP T 920 0.020097 N 152 CONTACT [16]
+STEP T 1036 0.0226 N 152 CONTACT [18]
+Writing configuration in legacy data format
+ Output file: /home/sakura/opendis/w4_g1_20261030_003/cases/mesh5_T/final.data
+G1_CASE PASS T 1150 None

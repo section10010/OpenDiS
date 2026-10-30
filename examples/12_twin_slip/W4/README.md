@@ -3,6 +3,10 @@
 继续工作先读 `DDD_Long_Term_Plan/PROJECT_STATUS.md`、`NEXT_ACTION.md` 和最新审查报告。
 规划原文、W3及旧规划 evidence 保留原状；新生产代码在 `code/`。
 
+## W4-G1 最终审查
+
+G1整体UNRESOLVED：1.25 nm M/T接触尾段差约3.03%仍超原2%；MT细化NOT_RUN，控制器CENSORED。主26例真实演化/释放/消融与G0原门禁复核完成。最终报告见 `G1/review/G1_20261030_003/final_review/W4_G1_FINAL_REPORT_ZH.html`；当前不放行G2。
+
 ## W4-G0 已执行
 
 真实VM根 `/home/sakura/opendis/w4_g0_20261030_001/production`，Python `/opt/miniforge3/envs/anvil/bin/python`，原生仓库 `/home/sakura/opendis/src`、构建 `/home/sakura/opendis/build`。这些路径本轮已现场核实。

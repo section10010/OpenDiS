@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "/home/sakura/opendis/w4_g1_20261030_002/g0_regression/code/test_native_diagnostics.py",
+    "--repo",
+    "/home/sakura/opendis/src",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_002/g0_regression/diagnostic_admission"
+  ],
+  "exit_code": 0,
+  "wall_s": 0.824336262000088
+}

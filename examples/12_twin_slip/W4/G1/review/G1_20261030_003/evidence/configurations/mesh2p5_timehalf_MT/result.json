@@ -1,0 +1,154 @@
+{
+  "status": "PASS",
+  "error": null,
+  "population": "MT",
+  "steps": 2324,
+  "time_ns": 0.025000000000000005,
+  "wall_s": 287.80023171599987,
+  "first_contact_ns": {
+    "M": 0.01251768260260721,
+    "T": 0.012517459130618266
+  },
+  "first_full_release_ns": {
+    "M": null,
+    "T": null
+  },
+  "minimum_gap_nm": 0.0,
+  "max_burgers_residual_b": 0.0,
+  "max_plastic_closure": 1.7680393012484096e-22,
+  "max_normalized_contact_violation": 1.8993353274104645e-16,
+  "max_glide_normal_velocity_m_s": 2.542811688574842e-12,
+  "max_node_displacement_nm": 0.015625000000701026,
+  "swept_area_nm2": {
+    "M": 10181.785111861835,
+    "T": 10182.115942419627
+  },
+  "stage_checks": {
+    "initialization": 1,
+    "integration": 2324,
+    "collision": 2324,
+    "topology": 2324,
+    "remesh": 2324
+  },
+  "diagnostics": {
+    "status": "PASS",
+    "accepted_samples": 2324,
+    "chunks": [
+      "chunk_00000.npz",
+      "chunk_00001.npz",
+      "chunk_00002.npz",
+      "chunk_00003.npz",
+      "chunk_00004.npz",
+      "chunk_00005.npz",
+      "chunk_00006.npz",
+      "chunk_00007.npz",
+      "chunk_00008.npz",
+      "chunk_00009.npz",
+      "chunk_00010.npz",
+      "chunk_00011.npz",
+      "chunk_00012.npz",
+      "chunk_00013.npz",
+      "chunk_00014.npz",
+      "chunk_00015.npz",
+      "chunk_00016.npz",
+      "chunk_00017.npz",
+      "chunk_00018.npz",
+      "chunk_00019.npz",
+      "chunk_00020.npz",
+      "chunk_00021.npz",
+      "chunk_00022.npz",
+      "chunk_00023.npz"
+    ],
+    "node_line_time_nm_s": 2.241506455921293e-08,
+    "capped_node_line_time_nm_s": 0.0,
+    "line_time_cap_fraction": 0.0,
+    "any_node_capped_record_fraction": 0.0,
+    "maximum_raw_velocity_m_s": 3300.995989648639,
+    "maximum_constrained_velocity_m_s": 3300.995989648639,
+    "max_normalized_contact_power": 3.753228211279915e-17,
+    "max_normalized_contact_normal_violation": 0.0,
+    "contact_reaction_work_J": 3.604698435489547e-36,
+    "left_rule_bulk_dissipation_J": 6.715302704981354e-16,
+    "external_work_from_native_plastic_J": 1.5540823694821936e-15,
+    "stage_area_norm_sum_nm2": {
+      "integration_account": 17410.438934186528,
+      "collision": 0.0,
+      "topology": 0.0,
+      "remesh": 3.180291649776503e-10
+    },
+    "stage_area_tensors_nm2": {
+      "integration_account": [
+        [
+          4155.368167411582,
+          2399.102930036865,
+          1696.4219505936721
+        ],
+        [
+          -7197.152410748447,
+          1385.0324368035276,
+          -2938.225167895723
+        ],
+        [
+          -13571.154450934126,
+          -0.12768321459225263,
+          -5540.400604214566
+        ]
+      ],
+      "collision": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "topology": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "remesh": [
+        [
+          -1.000444171950221e-11,
+          1.8189894035458565e-12,
+          -1.8189894035458565e-12
+        ],
+        [
+          3.183231456205249e-12,
+          -5.002220859751105e-12,
+          -4.774847184307873e-12
+        ],
+        [
+          9.094947017729282e-12,
+          -1.2732925824820995e-11,
+          -1.1823431123048067e-11
+        ]
+      ]
+    },
+    "elastic_potential_energy_status": "NOT_RUN: current Python native force binding exposes forces, not elastic energy; work is not relabelled as an independent energy",
+    "convention": "Three exact native left-state velocities, with actual accepted dt and half-incident-line weights; not frame-count or interpolated estimates"
+  },
+  "contact_enabled": true,
+  "qualification": "Single affine-slip source per side, ideal I0; unsupported junctions fail closed. No VCoNi calibration or CTB transmission."
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "/home/sakura/opendis/w4_g1_20261030_003/code/final_review_shared.py",
+    "--root",
+    "/home/sakura/opendis/w4_g1_20261030_003",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_003/final_review"
+  ],
+  "exit_code": 0,
+  "wall_s": 15.546946430999924
+}

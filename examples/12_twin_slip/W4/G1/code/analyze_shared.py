@@ -8,12 +8,16 @@ def load(path):return json.loads(Path(path).read_text())
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--spatial-extension',action='store_true');a=p.parse_args()
     root=a.root;out=a.out
     if out.exists():raise RuntimeError('Refuse overwrite')
     out.mkdir(parents=True);results={};metrics={};audits=[];paired=[];refinements=[]
     def save(name,value):(out/name).write_text(json.dumps(value,ensure_ascii=False,indent=2,allow_nan=False),encoding='utf-8')
     manifest=load(root/'campaign_manifest.json');jobs=manifest['jobs']
+    if a.spatial_extension:
+        assert load(root/'spatial_extension_result.json')['status']=='PASS'
+        jobs=jobs+load(root/'spatial_extension_manifest.json')['jobs']
+    criteria=load(root/'case_specs/base_MT.json')['criteria']
     aliases=load(root/'case_aliases.json').get('aliases',{}) if (root/'case_aliases.json').exists() else {}
     def case_dir(name):return root/'cases'/aliases.get(name,name)
     regional=[];reaction_ledger=[]
@@ -36,7 +40,7 @@ def main():
                     R=Q if h=='M' else rotation@Q
                     np.testing.assert_allclose(np.abs(z['planes'][edge]@R),1/np.sqrt(3),atol=1e-8)
                     np.testing.assert_allclose(np.sort(np.abs(z['burgers'][edge]@R),axis=1),np.tile([0,1/np.sqrt(2),1/np.sqrt(2)],(edge.sum(),1)),atol=1e-8)
-        source={'M':0,'T':1};dt_sum=0.;samples=0;max_power=0.;max_normal=0.;min_gap=float('inf');max_reconstruction=0.
+        source={'M':0,'T':1};dt_sum=0.;samples=0;max_power=0.;max_normal=0.;min_gap=float('inf');frame_evaluation_error=0.;frame_checks=0
         for chunk in sorted((folder/'accepted_velocity').glob('chunk_*.npz')):
             with np.load(chunk) as z:
                 assert np.all(z['dt_s']>0);dt_sum+=float(z['dt_s'].sum());samples+=len(z['dt_s'])
@@ -58,12 +62,22 @@ def main():
                 else:assert np.all(reaction==0)
                 for s,dt in enumerate(z['dt_s']):
                     lo,hi=z['offsets'][s:s+2];r=reaction[lo:hi];v=vc[lo:hi];host=z['node_host'][lo:hi]
+                    frame=folder/f'frame_{int(z["step"][s])-1:07d}.npz'
+                    if frame.exists():
+                        with np.load(frame) as actual:
+                            np.testing.assert_array_equal(actual['tags'],z['tags'][lo:hi])
+                            np.testing.assert_array_equal(actual['positions_nm'],z['positions_nm'][lo:hi])
+                            for field in ('raw_velocity_m_s','constrained_velocity_m_s','capped_velocity_m_s'):
+                                err=float(np.linalg.norm(actual[field]-z[field][lo:hi])/max(np.linalg.norm(actual[field]),1e-30))
+                                frame_evaluation_error=max(frame_evaluation_error,err)
+                        frame_checks+=1
                     rm=r[host=='M'].sum(axis=0);rt=r[host=='T'].sum(axis=0);carrier=-(rm+rt)
                     reaction_ledger.append(dict(case_id=name,actual_case=folder.name,step=int(z['step'][s]),time_ns=float(z['time_s'][s])*1e9,dt_s=float(dt),
                         M_reaction_z_N=float(rm[2]),T_reaction_z_N=float(rt[2]),CTB_carrier_z_N=float(carrier[2]),
                         virtual_work_J=float(np.einsum('ij,ij->',r,v)*dt)))
         assert samples==d['steps'];assert abs(dt_sum-d['time_ns']*1e-9)<1e-22
         assert max_power<=1e-8 and max_normal<=1e-8
+        assert frame_checks>0 and frame_evaluation_error<=1e-8
         assert d['max_burgers_residual_b']<=1e-8 and d['max_plastic_closure']<1e-12
         assert d['status']=='PASS'
         with np.load(folder/'initial.npz') as ini,np.load(folder/'final.npz') as fin:
@@ -79,8 +93,10 @@ def main():
                 M=parts['M'].tolist(),T=parts['T'].tolist(),native=native.tolist(),closure=regional_error))
         audits.append(dict(case_id=name,actual_case=folder.name,status='PASS',accepted_samples=samples,dt_sum_ns=dt_sum*1e9,
             max_normalized_power=max_power,max_normalized_normal_violation=max_normal,minimum_gap_nm=None if not np.isfinite(min_gap) else min_gap,
+            frame_left_evaluation_relative=frame_evaluation_error,frame_evaluation_checks=frame_checks,
             tag_material_source_audit='PASS',plastic_closure=d['max_plastic_closure']))
     levels=['base','timehalf','timequarter','mesh5','mesh2p5','mesh2p5_timehalf']
+    if a.spatial_extension:levels.append('mesh1p25')
     # Every forward refinement has exactly the same initial graph, not merely
     # the same JSON radius. Single populations equal the MT subnetworks.
     reference=None
@@ -97,7 +113,9 @@ def main():
                     np.testing.assert_array_equal(remap[mt['ids'][edge]],one['ids'])
                     for k in ('burgers','planes'):np.testing.assert_array_equal(mt[k][edge],one[k])
                 paired.append(dict(level=level,population=host,initial_subnetwork='EXACT'))
-    for coarse,fine,label in [('timehalf','timequarter','temporal_at_10'),('mesh5','mesh2p5','spatial_at_fine_time'),('mesh2p5','mesh2p5_timehalf','temporal_at_2p5')]:
+    pairs=[('timehalf','timequarter','temporal_at_10'),('mesh5','mesh2p5','spatial_at_fine_time'),('mesh2p5','mesh2p5_timehalf','temporal_at_2p5')]
+    if a.spatial_extension:pairs.append(('mesh2p5_timehalf','mesh1p25','final_spatial_at_fine_time'))
+    for coarse,fine,label in pairs:
         for population in ('M','T','MT'):
             c=metrics[coarse+'_'+population];f=metrics[fine+'_'+population];err={}
             for h in population:
@@ -105,7 +123,8 @@ def main():
                     key=h+'_'+suffix;x,y=c[key],f[key];err[key]=abs(x-y)/max(abs(y),1e-20)
             events={h:abs(results[coarse+'_'+population]['first_contact_ns'][h]-results[fine+'_'+population]['first_contact_ns'][h])/results[fine+'_'+population]['first_contact_ns'][h] for h in population}
             refinements.append(dict(label=label,population=population,primary_relative=err,event_relative=events,
-                status='PASS' if max(err.values())<=.02 and max(events.values())<=.05 else 'UNRESOLVED'))
+                qualification_role='historical_coarse_level' if a.spatial_extension and label=='spatial_at_fine_time' else 'required',
+                status='PASS' if max(err.values())<=criteria['primary_refinement_relative'] and max(events.values())<=criteria['event_relative'] else 'UNRESOLVED'))
     contrasts={}
     for level in levels:
         contrasts[level]={}
@@ -115,12 +134,19 @@ def main():
                 tail_difference_nm=both[h+'_tail_nm']-single[h+'_tail_nm'],
                 first_contact_difference_ns=results[level+'_MT']['first_contact_ns'][h]-results[level+'_'+h]['first_contact_ns'][h])
     causal=[]
+    origin=load(root/'origin_sensitivity_result.json') if (root/'origin_sensitivity_result.json').exists() else dict(status='NOT_RUN',checks=[])
+    finest='mesh1p25' if a.spatial_extension else 'mesh2p5_timehalf'
     for h in ('M','T'):
-        final=contrasts['mesh2p5_timehalf'][h]['area_difference_nm2'];spatial=abs(contrasts['mesh2p5'][h]['area_difference_nm2']-contrasts['mesh5'][h]['area_difference_nm2'])
-        temporal=abs(final-contrasts['mesh2p5'][h]['area_difference_nm2']);error=spatial+temporal
-        signs=[np.sign(contrasts[level][h]['area_difference_nm2']) for level in ('mesh5','mesh2p5','mesh2p5_timehalf')]
+        final=contrasts[finest][h]['area_difference_nm2']
+        spatial=abs(final-contrasts['mesh2p5_timehalf'][h]['area_difference_nm2']) if a.spatial_extension else abs(contrasts['mesh2p5'][h]['area_difference_nm2']-contrasts['mesh5'][h]['area_difference_nm2'])
+        temporal=abs(contrasts['mesh2p5_timehalf'][h]['area_difference_nm2']-contrasts['mesh2p5'][h]['area_difference_nm2'])
+        origin_item=next((v for v in origin['checks'] if v['host']==h),None)
+        origin_error=abs(origin_item['base_difference_nm2']-origin_item['shifted_origin_difference_nm2']) if origin_item else None
+        error=spatial+temporal+(origin_error if origin_error is not None else 0.)
+        signs=[np.sign(contrasts[level][h]['area_difference_nm2']) for level in (('mesh2p5','mesh2p5_timehalf','mesh1p25') if a.spatial_extension else ('mesh5','mesh2p5','mesh2p5_timehalf'))]
         causal.append(dict(host=h,delta_area_nm2=final,observed_spatial_difference_nm2=spatial,observed_time_difference_nm2=temporal,
             empirical_error_nm2=error,status='PASS' if abs(final)>2*error and len(set(signs))==1 else 'UNRESOLVED',
+            observed_origin_difference_nm2=origin_error,origin_sensitivity=origin['status'],
             note='Frozen deterministic resolution criterion; empirical differences are neither a rigorous error bound nor a seed CI'))
     releases=[];ctb=[]
     for population in ('M','T','MT'):
@@ -136,12 +162,18 @@ def main():
             wall=metrics['mesh2p5_timehalf_'+population][h+'_swept_area_nm2'];free=metrics['no_ctb_'+population][h+'_swept_area_nm2']
             ctb.append(dict(population=population,host=h,wall_area_nm2=wall,no_ctb_area_nm2=free,area_reduction=(free-wall)/free,
                 contact_tail_nm=metrics['mesh2p5_timehalf_'+population][h+'_tail_nm'],status='PASS' if wall<free else 'FAIL'))
-    force=load(root/'force_audit/result.json') if (root/'force_audit/result.json').exists() else dict(status='NOT_RUN')
+    force_path=root/('force_audit_mesh1p25' if a.spatial_extension else 'force_audit')/'result.json'
+    force=load(force_path) if force_path.exists() else dict(status='NOT_RUN')
     g0=load(root/'g0_regression/result.json') if (root/'g0_regression/result.json').exists() else dict(status='NOT_RUN')
-    status='FAIL' if force['status']=='FAIL' or g0['status']=='FAIL' or any(v['status']=='FAIL' for v in ctb) else 'PASS' if (len(audits)==26 and all(v['status']=='PASS' for v in refinements+causal+releases+ctb) and force['status']=='PASS' and g0['status']=='PASS') else 'UNRESOLVED'
+    centered=(root/'centered_force_admission/result.json').exists()
+    required=[v for v in refinements if v['qualification_role']=='required']+causal+releases+ctb
+    status='FAIL' if force['status']=='FAIL' or g0['status']=='FAIL' or origin['status']=='FAIL' or any(v['status']=='FAIL' for v in ctb) else 'PASS' if (len(audits)==(29 if a.spatial_extension else 26) and all(v['status']=='PASS' for v in required) and force['status']=='PASS' and g0['status']=='PASS' and (not centered or origin['status']=='PASS')) else 'UNRESOLVED'
     save('gate_review.json',dict(gate='W4-G1',status=status,numerical_cases=len(audits),initial_subnetwork_pairing='PASS',
         source_inheritance_contact_release_topology='PASS' if load(root/('admission_r2' if (root/'admission_r2/result.json').exists() else 'admission_r1')/'result.json')['status']=='PASS' else 'FAIL',
         native_force_causality=force['status'],G0_regression=g0['status'],
+        finest_forward_level=finest,main_operational_reference='mesh2p5_timehalf',last_spatial_extension='PASS' if a.spatial_extension and all(v['status']=='PASS' for v in refinements if v['label']=='final_spatial_at_fine_time') else 'NOT_RUN' if not a.spatial_extension else 'UNRESOLVED',
+        temporal_refinement_grid_nm=2.5,independent_temporal_refinement_at_1p25='NOT_RUN' if a.spatial_extension else 'NOT_APPLICABLE',
+        numerical_origin_sensitivity=origin['status'],centered_force_admission=load(root/'centered_force_admission/result.json')['status'] if centered else 'NOT_RUN',
         scope='Nonperiodic direct elastic force, one shared CTB, two affine single-slip ordinary loops, I0 fail-closed reactions. Not general multisystem/junction evolution.',
         unsupported_cross_material_reactions='REJECT_AND_STOP; native negative collision preserved',
         exact_cumulative_restart='NOT_QUALIFIED',periodic_layers='NOT_RUN',VCoNi='NOT_QUALIFIED',strengthening_or_thickness_trend='NOT_QUALIFIED'))

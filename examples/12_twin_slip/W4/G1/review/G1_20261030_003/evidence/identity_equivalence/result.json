@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "real_saved_graphs": 610,
+  "node_observations": 133747,
+  "comparison": "All source/host arrays exactly equal; unchanged floating predicates and source signatures",
+  "reference": "/home/sakura/opendis/w4_g1_20261030_003/cases/base_MT/code_snapshot/material_identity.py",
+  "wall_s": 0.8565838200001963
+}

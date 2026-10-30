@@ -1,0 +1,14 @@
+{
+  "client_date": "2026-10-30",
+  "observed_vm_utc": "2026-10-30T09:15:31.303775+00:00",
+  "python": "/opt/miniforge3/envs/anvil/bin/python",
+  "python_version": "3.12.15 (main, Oct 13 2026, 16:52:04) [GCC 15.3.0]",
+  "numpy": "2.5.4",
+  "vm_repository_revision": "78cdab0bd31b433fcc85d4e39eddc60993cabb6c",
+  "native_revision": "99b17cac346b2f6bf323acd843029268a0a8b196",
+  "native_semantic_patch": "3\t3\tsrc/collision_types/collision_retroactive.cpp\n11\t0\tsrc/network.cpp\n",
+  "Windows_source_branch": "codex/w4-g1-shared-ctb",
+  "source_milestone": "4048896 plus per-case exact code_snapshot and review tool snapshots",
+  "threads": 2,
+  "force_evaluation": "Native direct force on uniformly translated graph; physical graph unchanged; no force balancing correction"
+}

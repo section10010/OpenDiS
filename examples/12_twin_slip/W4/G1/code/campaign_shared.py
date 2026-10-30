@@ -63,7 +63,7 @@ def main():
             status=json.loads(result_path.read_text()).get('status','FAIL') if result_path.exists() else ('CENSORED' if timed_out else 'FAIL')
             (root/'campaign_stop.json').write_text(json.dumps(dict(status=status,case=name)));raise RuntimeError('Case stopped: '+name+' '+status)
         print('DONE',name,round(time.monotonic()-t,2),flush=True)
-    print('G1_CAMPAIGN_RECORDED',len(list((root/'cases').glob('*/result.json'))),'OF',len(jobs),flush=True)
+    print('G1_CAMPAIGN_RECORDED',sum((root/'cases'/j['case_id']/'result.json').exists() for j in jobs),'OF',len(jobs),flush=True)
 
 
 if __name__=='__main__':main()

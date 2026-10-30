@@ -1,0 +1,19 @@
+{
+  "status": "FROZEN_BEFORE_ORIGIN_TESTS",
+  "jobs": [
+    {
+      "case_id": "origin_shift100_M",
+      "population": "M"
+    },
+    {
+      "case_id": "origin_shift100_T",
+      "population": "T"
+    },
+    {
+      "case_id": "origin_shift100_MT",
+      "population": "MT"
+    }
+  ],
+  "max_total_wall_s": 900,
+  "criterion": "Each paired MT-minus-single signed area retains sign and differs by no more than 2 percent of the original paired difference. No physical geometry is moved."
+}

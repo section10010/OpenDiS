@@ -1,0 +1,66 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "case_id": "G0_loop_HI_none_uncapped_diagnostic",
+      "criterion": "Original auxiliary full-field relative error < 1e-10; unchanged",
+      "relative": {
+        "positions_nm": 1.6444459165981442e-12,
+        "force_N": 8.889237018445557e-09,
+        "velocity_m_s": 1.0489965556024397e-08
+      },
+      "absolute_max": {
+        "positions_nm": 1.9555955077521503e-08,
+        "force_N": 4.267293527277373e-17,
+        "velocity_m_s": 0.00027345863645678037
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "G0_loop_HI_both_uncapped_diagnostic",
+      "criterion": "Original auxiliary full-field relative error < 1e-10; unchanged",
+      "relative": {
+        "positions_nm": 0.0,
+        "force_N": 0.0,
+        "velocity_m_s": 0.0
+      },
+      "absolute_max": {
+        "positions_nm": 0.0,
+        "force_N": 0.0,
+        "velocity_m_s": 0.0
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "G0_threader_HII_none_uncapped_diagnostic",
+      "criterion": "Original auxiliary full-field relative error < 1e-10; unchanged",
+      "relative": {
+        "positions_nm": 1.1185021350015389e-12,
+        "force_N": 1.0390601149380418e-09,
+        "velocity_m_s": 1.1896763487463282e-09
+      },
+      "absolute_max": {
+        "positions_nm": 1.4658780855825171e-08,
+        "force_N": 2.963666952817759e-18,
+        "velocity_m_s": 1.5336147043853998e-05
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "G0_threader_HII_both_uncapped_diagnostic",
+      "criterion": "Original auxiliary full-field relative error < 1e-10; unchanged",
+      "relative": {
+        "positions_nm": 0.0,
+        "force_N": 5.825080418875307e-18,
+        "velocity_m_s": 1.2384450184416011e-17
+      },
+      "absolute_max": {
+        "positions_nm": 0.0,
+        "force_N": 5.169878828456423e-26,
+        "velocity_m_s": 1.2789769243681803e-13
+      },
+      "status": "PASS"
+    }
+  ],
+  "conclusion": "No 1e-10 full force/velocity replay qualification. The native floating difference source is not independently isolated. Historical assertion failure is retained."
+}

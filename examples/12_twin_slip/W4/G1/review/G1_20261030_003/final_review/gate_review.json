@@ -1,0 +1,27 @@
+{
+  "gate": "W4-G1",
+  "status": "UNRESOLVED",
+  "review_date": "2026-10-30",
+  "frozen_primary_relative": 0.02,
+  "frozen_event_relative": 0.05,
+  "main_native_cases": 26,
+  "completed_1p25_native_cases": 2,
+  "planned_1p25_native_cases": 3,
+  "missing_1p25_cases": [
+    "mesh1p25_MT"
+  ],
+  "tail_threshold": "FAIL",
+  "spatial_extension_resource_status": "CENSORED",
+  "source_identity_contact_release_topology": "PASS",
+  "native_force_at_2p5": "PASS",
+  "native_force_at_1p25_MT": "NOT_RUN",
+  "temporal_refinement_at_1p25": "NOT_RUN",
+  "G0_original_scientific_contract": "PASS",
+  "G0_auxiliary_1e10_full_field_replay": "FAIL",
+  "periodic_G2_admission": "BLOCKED",
+  "W4_G2": "NOT_RUN",
+  "W6_collective": "NOT_RUN",
+  "VCoNi": "NOT_QUALIFIED",
+  "qualification_scope": "One shared planar I0 CTB, nonperiodic direct force, one affine ordinary propagation loop per side. General reactions, exact ledger restart and material strengthening are not qualified.",
+  "evidence_policy": "All old FAIL/CENSORED/UNRESOLVED and raw trajectories retained. Missing measurements are null, not zero. No new dynamics launched by this reviewer."
+}

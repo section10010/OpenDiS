@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "/home/sakura/opendis/w4_g1_20261030_003/code/collect_shared.py",
+    "--root",
+    "/home/sakura/opendis/w4_g1_20261030_003",
+    "--dest",
+    "/home/sakura/opendis"
+  ],
+  "exit_code": 0,
+  "wall_s": 11.162627067000358
+}

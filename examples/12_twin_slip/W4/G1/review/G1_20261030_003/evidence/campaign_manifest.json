@@ -1,0 +1,143 @@
+{
+  "status": "FROZEN_BEFORE_CAMPAIGN",
+  "jobs": [
+    {
+      "case_id": "base_M",
+      "population": "M",
+      "group": "forward"
+    },
+    {
+      "case_id": "base_T",
+      "population": "T",
+      "group": "forward"
+    },
+    {
+      "case_id": "base_MT",
+      "population": "MT",
+      "group": "forward"
+    },
+    {
+      "case_id": "timehalf_M",
+      "population": "M",
+      "group": "forward"
+    },
+    {
+      "case_id": "timehalf_T",
+      "population": "T",
+      "group": "forward"
+    },
+    {
+      "case_id": "timehalf_MT",
+      "population": "MT",
+      "group": "forward"
+    },
+    {
+      "case_id": "timequarter_M",
+      "population": "M",
+      "group": "forward"
+    },
+    {
+      "case_id": "timequarter_T",
+      "population": "T",
+      "group": "forward"
+    },
+    {
+      "case_id": "timequarter_MT",
+      "population": "MT",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh5_M",
+      "population": "M",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh5_T",
+      "population": "T",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh5_MT",
+      "population": "MT",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh2p5_M",
+      "population": "M",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh2p5_T",
+      "population": "T",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh2p5_MT",
+      "population": "MT",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh2p5_timehalf_M",
+      "population": "M",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh2p5_timehalf_T",
+      "population": "T",
+      "group": "forward"
+    },
+    {
+      "case_id": "mesh2p5_timehalf_MT",
+      "population": "MT",
+      "group": "forward"
+    },
+    {
+      "case_id": "no_ctb_M",
+      "population": "M",
+      "group": "no_ctb"
+    },
+    {
+      "case_id": "reverse_M",
+      "population": "M",
+      "group": "reverse",
+      "initial_case": "mesh2p5_timehalf_M"
+    },
+    {
+      "case_id": "no_ctb_T",
+      "population": "T",
+      "group": "no_ctb"
+    },
+    {
+      "case_id": "reverse_T",
+      "population": "T",
+      "group": "reverse",
+      "initial_case": "mesh2p5_timehalf_T"
+    },
+    {
+      "case_id": "no_ctb_MT",
+      "population": "MT",
+      "group": "no_ctb"
+    },
+    {
+      "case_id": "reverse_MT",
+      "population": "MT",
+      "group": "reverse",
+      "initial_case": "mesh2p5_timehalf_MT"
+    },
+    {
+      "case_id": "topology_off_MT",
+      "population": "MT",
+      "group": "operator_ablation"
+    },
+    {
+      "case_id": "remesh_off_MT",
+      "population": "MT",
+      "group": "operator_ablation"
+    }
+  ],
+  "max_wall_s": 3600,
+  "initial_geometry": "Exactly common 10 nm polygon seed for every resolution, phase labels preserved across ablations",
+  "causal_admission": "Paired signed area difference agrees at final levels and exceeds twice its last refinement change",
+  "observables": "per-origin unsigned integration sweep, signed plastic tensor, stored/contact line, first contact and release",
+  "no_seed_CI": true
+}

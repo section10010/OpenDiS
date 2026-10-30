@@ -1,0 +1,86 @@
+{
+  "base": {
+    "M": {
+      "area_difference_nm2": 31.106882221298292,
+      "relative_to_single": 0.003078130557394796,
+      "tail_difference_nm": 0.006366466921477354,
+      "first_contact_difference_ns": -2.6348516944729033e-05
+    },
+    "T": {
+      "area_difference_nm2": 31.46037449556934,
+      "relative_to_single": 0.0031131098106074125,
+      "tail_difference_nm": 0.007175699216510623,
+      "first_contact_difference_ns": -2.6528911445673764e-05
+    }
+  },
+  "timehalf": {
+    "M": {
+      "area_difference_nm2": 31.268404378552077,
+      "relative_to_single": 0.003092933532282764,
+      "tail_difference_nm": 0.006999803560681528,
+      "first_contact_difference_ns": -2.595874508446762e-05
+    },
+    "T": {
+      "area_difference_nm2": 31.63918609117536,
+      "relative_to_single": 0.0031296096329708257,
+      "tail_difference_nm": 0.007778076902326347,
+      "first_contact_difference_ns": -2.6088515239674342e-05
+    }
+  },
+  "timequarter": {
+    "M": {
+      "area_difference_nm2": 31.12861571094436,
+      "relative_to_single": 0.0030784769293317263,
+      "tail_difference_nm": 0.005511735474179602,
+      "first_contact_difference_ns": -2.6364002471692197e-05
+    },
+    "T": {
+      "area_difference_nm2": 31.478993828655803,
+      "relative_to_single": 0.003113127708246022,
+      "tail_difference_nm": 0.0070379100495259195,
+      "first_contact_difference_ns": -2.650356092204556e-05
+    }
+  },
+  "mesh5": {
+    "M": {
+      "area_difference_nm2": 31.236032834895013,
+      "relative_to_single": 0.0030806713413784317,
+      "tail_difference_nm": -0.0014195042936080426,
+      "first_contact_difference_ns": -2.6390993125994036e-05
+    },
+    "T": {
+      "area_difference_nm2": 31.555721831231494,
+      "relative_to_single": 0.003112200848111551,
+      "tail_difference_nm": 0.0005497315948730375,
+      "first_contact_difference_ns": -2.655321319840198e-05
+    }
+  },
+  "mesh2p5": {
+    "M": {
+      "area_difference_nm2": 30.89594169954944,
+      "relative_to_single": 0.003043681507981538,
+      "tail_difference_nm": -0.0024904062031296803,
+      "first_contact_difference_ns": -2.6376717407025976e-05
+    },
+    "T": {
+      "area_difference_nm2": 31.164629578373933,
+      "relative_to_single": 0.003070149598585378,
+      "tail_difference_nm": -0.0005936162482171881,
+      "first_contact_difference_ns": -2.6607142108395904e-05
+    }
+  },
+  "mesh2p5_timehalf": {
+    "M": {
+      "area_difference_nm2": 31.272129882221634,
+      "relative_to_single": 0.0030808423118850845,
+      "tail_difference_nm": -0.0027058872050247373,
+      "first_contact_difference_ns": -2.6362429134164228e-05
+    },
+    "T": {
+      "area_difference_nm2": 31.602949160871503,
+      "relative_to_single": 0.0031134336936330135,
+      "tail_difference_nm": -0.0008622136075544518,
+      "first_contact_difference_ns": -2.658590117761081e-05
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "test": "M_native_block_tangent_release_reaction",
+      "status": "PASS"
+    },
+    {
+      "test": "T_native_block_tangent_release_reaction",
+      "status": "PASS"
+    },
+    {
+      "test": "native_remesh_source_inheritance",
+      "status": "PASS",
+      "nodes_before": 76,
+      "nodes_after": 152
+    },
+    {
+      "test": "native_coarsen_source_inheritance",
+      "status": "PASS",
+      "nodes_before": 152,
+      "nodes_after": 76
+    },
+    {
+      "test": "native_recycled_address_material_identity",
+      "status": "PASS"
+    },
+    {
+      "test": "actual_native_penetration_rejected_with_rollback",
+      "status": "PASS"
+    },
+    {
+      "test": "native_cross_material_collision",
+      "status": "PASS",
+      "initial_nodes": 76,
+      "proposal_nodes": 77,
+      "rejected": true,
+      "note": "No accepted cross-material reaction permitted in I0"
+    }
+  ],
+  "scope": "Native contact, source identity and fail-closed I0 stage admission; no general CTB reactions"
+}

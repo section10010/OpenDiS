@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/opt/miniforge3/envs/anvil/bin/python",
+    "/home/sakura/opendis/w4_g1_20261030_002/g0_regression/code/run.py",
+    "--repo",
+    "/home/sakura/opendis/src",
+    "--config",
+    "/home/sakura/opendis/w4_g0_20261030_001/production/configs/G0_threader_HII_both_uncapped_diagnostic.json",
+    "--out",
+    "/home/sakura/opendis/w4_g1_20261030_002/g0_regression/cases/G0_threader_HII_both_uncapped_diagnostic",
+    "--a0",
+    "/home/sakura/opendis/w4_g1_20261030_002/g0_regression/A0/gate_result.json"
+  ],
+  "exit_code": 0,
+  "wall_s": 13.896607521000078
+}
